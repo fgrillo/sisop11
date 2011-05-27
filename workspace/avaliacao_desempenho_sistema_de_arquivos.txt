@@ -1,0 +1,34 @@
+fatores:
+- file system: EXT4, ReiserFS e XFS
+- tamanho do bloco: 4KB e 1KB
+- tamanho da memória: 1GB e 2GB
+- tamanho dos arquivos: 512B e 1MB
+
+total: 3*2^3 = 24
+cada teste rodando 10 vezes
+
+para tamanho_memória em [1GB, 2GB]:
+  para file_system em [EXT4, ReiserFS, XFS]:
+    para tamanho_bloco em [4KB, 1KB]:
+      formata_partição(file_system, tamanho_bloco)
+      para tamanho_arquivo em [512B, 1MB]:
+	faça 10 vezes:
+	  testa_iozone(tamanho_arquivo)
+
+iozone -a -Rb $MYNAME.xls -s $FILE_SIZE -i 0 -i 1 -i 2 -i 8 -f $PARTITION/$TEST_FILE
+
+iozone3
+-a     Used to select full automatic mode. Produces output that covers all  tested  file  operations  for  record sizes of 4k to 16M for file sizes of 64k to 512M.
+-b filename: output of an Excel compatible file
+-n #: set minimum file size (in Kbytes) for auto mode. One may also specify -n #k  (size  in  Kbytes)  or  -n #m (size in Mbytes) or -n #g (size in Gbytes).
+-g #: set  maximum  file  size  (in  Kbytes) for auto mode. One may also specify -g #k (size in Kbytes) or -g #m (size in Mbytes) or -g #g (size in Gbytes).
+-i #: used to specify which tests to run.
+-l #: set the lower limit on number of processes to run. When running throughput tests this  option  allows the user to specify the least number of processes or threads to start.
+-u #: set  the  upper  limit on number of processes to run. When running throughput tests this option allows the user to specify the greatest number of processes or threads to start.
+-y #   Set minimum record size (in Kbytes) for auto mode.
+-q #   Set maximum record size (in Kbytes) for auto mode.
+-r #   Used to specify the record size, in Kbytes, to test.
+-R     Generate  Excel report.  Iozone will generate an Excel compatible report to standard out.
+-s #   Used to specify the size, in Kbytes, of the file to test.
+
+-+u    Used to enable CPU statistics collection.
