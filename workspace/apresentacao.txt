@@ -1,0 +1,14 @@
+Apresentação 1: apresentação das ideias do projeto
+
+Apresentação 2: apresentação dos sistemas de arquivo
+- slide 1: Roteiro
+- slide 2-4: XFS
+- slide 5-7: ReiserFS
+- slide 8-10: EXT4
+
+Apresentação 3
+- slide 1: Roteiro
+- slide 2: mostrar fatores/níveis
+- slide 3: mostrar IOZone
+- slide 4: pseudo-script
+- slide 5: resultados iniciais
