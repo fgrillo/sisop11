@@ -32,3 +32,17 @@ iozone3
 -s #   Used to specify the size, in Kbytes, of the file to test.
 
 -+u    Used to enable CPU statistics collection.
+
+
+// BOGUS
+# mkfs.reiserfs -b 512 /dev/sda9
+mkfs.reiserfs 3.6.21 (2009 www.namesys.com)
+
+A pair of credits:
+Elena Gryaznova performed testing and benchmarking.
+
+Alexander  Lyamin  keeps our hardware  running,  and was very  generous  to our
+project in many little ways.
+
+
+Block sizes smaller than 4k are not supported.
