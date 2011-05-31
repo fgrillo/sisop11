@@ -76,6 +76,40 @@ resumo aqui!
 
 \section{ReiserFS}\label{sec:reiser}
 
+O ReiserFS foi criado em 1996 por Hans Thomas Reiser e se tornou muito famoso, entre outras coisas, por ser o primeiro sistema de arquivos a utilizar a técnica de \textit{journaling} para melhorar a confiabilidade do sistema. No caso do ReiserFS, o \textit{journaling} embora sejam guardadas informações sobre todo o sistema de arquivos, ele tem a intenção de garantir a integridade dos metadados dos arquivos, ou seja, ele não é capaz de reconstruir todo o sistema de arquivos a partir do \textit{journal}.
+
+Passou a ser suportado oficialmente pelo kernel do linux a partir de sua versão 2.4 e chegou a ser adotado como sistema de arquivos padrão da distribuição comercial da Novell, o SUSE Linux Enterprise. Sua adoção foi baseada no fato do Reiser ser o único sistema de arquivos da época que possuia \textit{journaling} e também em acordos de suporte com a empresa de de seu criador a Namesys.
+
+Este sistema utiliza árvores B* para melhorar o desempenho em operações de busca. De acordo com a documentação encontrada sobre o sistema \cite{site reiser} ele pode ser utilizado com quatro opções de tamanho de bloco: 4096 (padrão), 512, 1024 e 8192 KBytes. No entanto, durante testes preliminares com o sistema Kubuntu 10.10 não foi possível criar um sistema de arquivos Reiser com tamanho de bloco diferente de 4096 KBytes.
+
+XXX Colocar um dump do terminal falando que não é possível utilizar outra opção de bloco.
+
+Á estrutura de árvore utilizada possui dois tipos de nós: Nós internos e nós folhas e cada nó é um bloco do disco. O primeiro tipo é utilizado para manter a estrutura de árvore, apontando para outros blocos. Os nós folha são os itens propriamente ditos. No ReiserFS os itens podem representar arquivos, diretórios ou \textit{stat item}. Os arquivos podem ser de dois tipos, itens diretos ou indiretos, dependendo do tamanho do arquivo.
+
+Cada diretório ou arquivo é sempre precedido por um \textit{stat item} que contém metadados sobre o arquivo ou diretório que o sucede.
+
+A Figura \ref{fig:reisertree} mostra um exemplo da estrutura de árvore utilizada pelo ReiserFS para organizar os arquivos no disco.
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[width=1\textwidth]{images/stree.png}
+\caption {Modelo de árvore utilizado pelo ReiserFS com blocos internos representados pelos blocos retangulares e blocos folha representados por esferas.}
+\label{fig:reisertree}
+\end{center}
+\end{figure}
+
+Principais vantagens:
+\begin{itemize}
+	\item vantagem 1
+	\item vantagem 2
+\end{itemize}
+
+Principais desvantagens:
+\begin{itemize}
+	\item desvantagem 1
+	\item desvantagem 2
+\end{itemize}
+
 \section{IOzone}\label{sec:iozone}
 
 \section{Avaliação de desempenho}\label{sec:avaliacao}
