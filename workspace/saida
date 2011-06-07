@@ -1,0 +1,53 @@
+	Iozone: Performance Test of File I/O
+	        Version $Revision: 3.308 $
+		Compiled for 32 bit mode.
+		Build: linux 
+
+	Contributors:William Norcott, Don Capps, Isom Crawford, Kirby Collins
+	             Al Slater, Scott Rhine, Mike Wisner, Ken Goss
+	             Steve Landherr, Brad Smith, Mark Kelly, Dr. Alain CYR,
+	             Randy Dunlap, Mark Montague, Dan Million, Gavin Brebner,
+	             Jean-Marc Zucconi, Jeff Blomberg, Benny Halevy,
+	             Erik Habbinga, Kris Strecker, Walter Wong, Joshua Root.
+
+	Run began: Thu Jun  2 20:10:54 2011
+
+	Excel chart generation enabled
+	Record Size 4 KB
+	File size set to 64 KB
+	Command line used: iozone -R -r4k -i 0 -i 1 -i 2 -i 8 -f /tmp/test_fs/temp_file -s 64k
+	Output is in Kbytes/sec
+	Time Resolution = 0.000001 seconds.
+	Processor cache size set to 1024 Kbytes.
+	Processor cache line size set to 32 bytes.
+	File stride size set to 17 * record size.
+                                                            random  random    bkwd   record   stride                                   
+              KB  reclen   write rewrite    read    reread    read   write    read  rewrite     read   fwrite frewrite   fread  freread
+              64       4  450679  710205  1603403  1933710 1599996  941175                                                          
+
+iozone test complete.
+Excel output is below:
+
+"Writer report"
+        "4"
+"64"   450679 
+
+"Re-writer report"
+        "4"
+"64"   710205 
+
+"Reader report"
+        "4"
+"64"   1603403 
+
+"Re-Reader report"
+        "4"
+"64"   1933710 
+
+"Random read report"
+        "4"
+"64"   1599996 
+
+"Random write report"
+        "4"
+"64"   941175 

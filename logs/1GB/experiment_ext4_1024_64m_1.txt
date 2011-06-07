@@ -1,0 +1,79 @@
+	Iozone: Performance Test of File I/O
+	        Version $Revision: 3.308 $
+		Compiled for 32 bit mode.
+		Build: linux 
+
+	Contributors:William Norcott, Don Capps, Isom Crawford, Kirby Collins
+	             Al Slater, Scott Rhine, Mike Wisner, Ken Goss
+	             Steve Landherr, Brad Smith, Mark Kelly, Dr. Alain CYR,
+	             Randy Dunlap, Mark Montague, Dan Million, Gavin Brebner,
+	             Jean-Marc Zucconi, Jeff Blomberg, Benny Halevy,
+	             Erik Habbinga, Kris Strecker, Walter Wong, Joshua Root.
+
+	Run began: Mon Jun  6 21:56:27 2011
+
+	Excel chart generation enabled
+	Record Size 4 KB
+	CPU utilization Resolution = 0.000 seconds.
+	CPU utilization Excel chart enabled
+	File size set to 65536 KB
+	Command line used: /usr/bin/iozone -R -r 4k -i 0 -i 1 -i 2 -i 8 -+u -f /tmp/test_fs/temp_file -s 64m
+	Output is in Kbytes/sec
+	Time Resolution = 0.000001 seconds.
+	Processor cache size set to 1024 Kbytes.
+	Processor cache line size set to 32 bytes.
+	File stride size set to 17 * record size.
+                                                            random  random    bkwd   record   stride                                   
+              KB  reclen   write rewrite    read    reread    read   write    read  rewrite     read   fwrite frewrite   fread  freread
+           65536       4  362959  617216  1297381  1298591 1095974  566577                                                          
+
+iozone test complete.
+Excel output is below:
+
+"Writer report"
+        "4"
+"65536"   362959 
+
+"Re-writer report"
+        "4"
+"65536"   617216 
+
+"Reader report"
+        "4"
+"65536"   1297381 
+
+"Re-Reader report"
+        "4"
+"65536"   1298591 
+
+"Random read report"
+        "4"
+"65536"   1095974 
+
+"Random write report"
+        "4"
+"65536"   566577 
+
+"Writer CPU utilization report (Zero values should be ignored)"
+        "4"
+"65536"    14.46
+
+"Re-writer CPU utilization report (Zero values should be ignored)"
+        "4"
+"65536"    11.28
+
+"Reader CPU utilization report (Zero values should be ignored)"
+        "4"
+"65536"    72.41
+
+"Re-Reader CPU utilization report (Zero values should be ignored)"
+        "4"
+"65536"   100.00
+
+"Random read CPU utilization report (Zero values should be ignored)"
+        "4"
+"65536"   100.00
+
+"Random write CPU utilization report (Zero values should be ignored)"
+        "4"
+"65536"    14.77
