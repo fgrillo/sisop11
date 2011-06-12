@@ -1,59 +1,64 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: monografia.aux
-White space in argument---line 17 of file monografia.aux
- : \citation{site
- :                reiser}
-I'm skipping whatever remains of this command
 The style file: abnt-num.bst
-I found no cite keys---while reading file monografia.aux
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: monografia.bib
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=5001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
-| Estilo bibliografico abnt-num.bst versao 1.50           |
-| Implementa a NBR6023, NBR10520 e NBR10523               |
-| Em caso de duvidas ou problemas com este estilo procure |
+| Estilo bibliográfico abnt-num.bst versão 1.42           |
+| Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 0 entries,
-            6522 wiz_defined-function locations,
-            1161 strings with 9221 characters,
-and the built_in function-call counts, 637 in all, are:
-= -- 170
-> -- 0
+You've used 1 entry,
+            6476 wiz_defined-function locations,
+            1157 strings with 9254 characters,
+and the built_in function-call counts, 1127 in all, are:
+= -- 200
+> -- 12
 < -- 0
-+ -- 43
-- -- 0
-* -- 24
-:= -- 146
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 130
++ -- 48
+- -- 4
+* -- 49
+:= -- 212
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 7
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 27
+empty$ -- 51
+format.name$ -- 20
+if$ -- 248
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 8
-num.names$ -- 0
-pop$ -- 22
+missing$ -- 16
+newline$ -- 13
+num.names$ -- 4
+pop$ -- 43
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 3
 quote$ -- 0
-skip$ -- 41
+skip$ -- 79
 stack$ -- 1
-substring$ -- 41
-swap$ -- 0
+substring$ -- 49
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 2
+while$ -- 6
 width$ -- 0
-write$ -- 7
-(There were 2 error messages)
+write$ -- 18

@@ -45,11 +45,14 @@ de São Paulo \par ICMC - USP
 
 \folhaderosto
 
+
 \begin{folhadeaprovacao}
-\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\
-\begin{flushright}{}``\emph{Por mais humilde que seja, um bom}\\
-\emph{trabalho inspira uma sensação de vitória.}\\
-{\small Jack Kemp}\end{flushright}{\small \par}
+\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\
+\begin{flushright}{}``\emph{É impossível avaliar a força que possuímos sem }\\
+\emph{medir o tamanho do obstáculo que podemos vencer, }\\
+\emph{nem o valor de uma ação sem sabermos}\\
+\emph{o sacrifício que ela comporta.}``\\
+{\small H. W. Beecher}\end{flushright}{\small \par}
 \end{folhadeaprovacao}
 
 \begin{resumo}
@@ -64,6 +67,7 @@ resumo aqui!
 \listadefiguras
 \listadetabelas
 
+\onehalfspacing
 \chapter{Introdução}\label{cap:introducao}
 
 	
@@ -72,11 +76,17 @@ resumo aqui!
 		
 \section{Objetivos}\label{sec:objetivos}
 
+Este trabalho tem como objetivo avaliar o desempenho dos sistemas de arquivos Ext4, XFS e ReiserFS em comparação uns aos outros. Esta avaliação pretende explicitar vantagens e desvantagens destes sistemas de arquivos e esclarecer em que situações cada um possui melhor desempenho. 
+
 
 \section{Organização do trabalho}\label{sec:organizacao}
 
+O Capítulo \ref{cap:metodos} descreve os sistemas de arquivos que serão avaliados, a ferramenta utilizada para execução dos experimentos e o ambiente no qual foram executados. No Capítulo \ref{cap:planejamento} descreve-se em detalhes o planejamento e a execução dos experimentos. São definidos os fatores e níveis que serão avaliados, a lista de todos os experimentos e o planejamento adotado.  O capítulo \ref{cap:resultados} traz os resultados obtidos através da coleta realizada nos experimentos e possuis gráficos comparativos dos experimentos bem como análise da influência dos fatores. Por fim, o Capítulo \ref{cap:conclusao} traz as conclusões sobre cada uma das etapas do experimento e considerações finais.
+
 
 \chapter{Metodos e Ferramentas}\label{cap:metodos}
+
+A seguir encontra-se uma descrição detalhada de cada um dos sistemas de arquivos que serão avaliados, bem como a ferramenta utilizada e o ambiente no qual os experimentos foram executados.
 
 \section{XFS}\label{sec:xfs}
 
@@ -88,9 +98,7 @@ O ReiserFS foi criado em 1996 por Hans Thomas Reiser e se tornou muito famoso, e
 
 Passou a ser suportado oficialmente pelo kernel do linux a partir de sua versão 2.4 e chegou a ser adotado como sistema de arquivos padrão da distribuição comercial da Novell, o SUSE Linux Enterprise. Sua adoção foi baseada no fato do Reiser ser o único sistema de arquivos da época que possuia \textit{journaling} e também em acordos de suporte com a empresa de de seu criador a Namesys.
 
-Este sistema utiliza árvores B* para melhorar o desempenho em operações de busca. De acordo com a documentação encontrada sobre o sistema \cite{site reiser} ele pode ser utilizado com quatro opções de tamanho de bloco: 4096 (padrão), 512, 1024 e 8192 KBytes. No entanto, durante testes preliminares com o sistema Kubuntu 10.10 não foi possível criar um sistema de arquivos Reiser com tamanho de bloco diferente de 4096 KBytes.
-
-XXX Colocar um dump do terminal falando que não é possível utilizar outra opção de bloco.
+Este sistema utiliza árvores B* para melhorar o desempenho em operações de busca. De acordo com a documentação encontrada sobre o sistema\cite{sitereiser} ele pode ser utilizado com quatro opções de tamanho de bloco: 4096 (padrão), 512, 1024 e 8192 KBytes. No entanto, durante testes preliminares com o sistema Kubuntu 10.10 não foi possível criar um sistema de arquivos Reiser com tamanho de bloco diferente de 4096 KBytes. Em função disso, nas etapas 2 e 3 da avaliação o fator B - Tamanho do bloco não foi utilizado.
 
 Á estrutura de árvore utilizada possui dois tipos de nós: Nós internos e nós folhas e cada nó é um bloco do disco. O primeiro tipo é utilizado para manter a estrutura de árvore, apontando para outros blocos. Os nós folha são os itens propriamente ditos. No ReiserFS os itens podem representar arquivos, diretórios ou \textit{stat item}. Os arquivos podem ser de dois tipos, itens diretos ou indiretos, dependendo do tamanho do arquivo.
 
@@ -106,26 +114,24 @@ A Figura \ref{fig:reisertree} mostra um exemplo da estrutura de árvore utilizada
 \end{center}
 \end{figure}
 
-Principais vantagens:
-\begin{itemize}
-	\item vantagem 1
-	\item vantagem 2
-\end{itemize}
-
-Principais desvantagens:
-\begin{itemize}
-	\item desvantagem 1
-	\item desvantagem 2
-\end{itemize}
-
 \section{IOzone}\label{sec:iozone}
-
-\section{Avaliação de desempenho}\label{sec:avaliacao}
 
 \section{Ambiente}\label{sec: ambiente}
 
+Os experimentos foram executados computador desktop com as seguintes configurações:
+
+\begin{itemize}
+\item Processador: AMD Atlhon 64bits X2 Dual Core Processor 4000+
+\item Memória: 1GB/2GB (Dois pentes de 1GB) DDR2 800Mhz
+\item HD: Samsung SP2004C 200GB 7200rpm 8MB de cache
+\item Sistema operacional: Kubuntu Linux 10.10 32bits, Kernel 2.6.35-28-generic
+\end{itemize}
+
+Para execução das repetições de cada experimento foi criado um \textit{script} bash que roda automaticamente todas as variações de fatores para a configuração de memória RAM da máquina. Então é necessário alterar a configuração de memória manualmente e depois executar o \textit{script} novamente. O \textit{script} pode ser encontrado no Anexo \ref{cap:scripts}.
 
 \chapter{Planejamento e execução}\label{cap:planejamento}
+
+Neste capítulo são especificados o modelo de avaliação que foi adotado, quais as variáveis de resposta medidas, fatores e níveis considerados e como os experimentos foram divididos em etapas.
 
 \section{Variáveis de resposta, fatores e níveis}\label{sec:fatores}
 
@@ -226,34 +232,9 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 
 \chapter{Resultados Obtidos}\label{cap:resultados}
 
+Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2 e 3. Sendo que os gráficos de barra utilizados foram agrupados de modo que cada par de experimentos que possuam de variação entre eles apenas o fator Sistema de arquivo sejam exibidos juntos para facilitar a comparação de um sistema de arquivo em relação ao outro.
+
 \section{Etapa 1: }\label{sec:etapa1}
-
-  \begin{table}[htbp]
-\begin{center}
-\begin{tabular}{|l|r|r|r|r|}
-\hline
-\multicolumn{1}{|l|}{\textbf{Fator(es)}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
-\textbf{iA} & 6.00 & 0.44 & 28.97 & 1.15 \\ \hline
-\textbf{iB} & 77.29 & 1.82 & 0.02 & 0.29 \\ \hline
-\textbf{iC} & 0.01 & 0.11 & 26.29 & 68.52 \\ \hline
-\textbf{iD} & 11.27 & 64.16 & 35.92 & 28.06 \\ \hline
-\textbf{iAB} & 1.94 & 4.86 & 0.50 & 0.11 \\ \hline
-\textbf{iAC} & 0.11 & 10.86 & 7.35 & 0.16 \\ \hline
-\textbf{iAD} & 0.19 & 0.13 & 0.00 & 0.45 \\ \hline
-\textbf{iBC} & 0.00 & 3.03 & 0.09 & 0.14 \\ \hline
-\textbf{iBD} & 2.74 & 5.25 & 0.15 & 0.05 \\ \hline
-\textbf{iCD} & 0.01 & 0.06 & 0.14 & 0.88 \\ \hline
-\textbf{iABC} & 0.25 & 2.04 & 0.03 & 0.01 \\ \hline
-\textbf{iABD} & 0.06 & 5.05 & 0.23 & 0.11 \\ \hline
-\textbf{iACD} & 0.12 & 2.07 & 0.11 & 0.05 \\ \hline
-\textbf{iBCD} & 0.01 & 0.04 & 0.15 & 0.01 \\ \hline
-\textbf{iABCD} & 0.00 & 0.09 & 0.03 & 0.01 \\ \hline
-\end{tabular}
-\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 1 da avaliação de desempenho separados para o tipo de operação.}
-\end{center}
-\label{tab:influ1}
-\end{table}
-
 
 \begin{figure} [!ht]
 \begin{center}
@@ -288,6 +269,33 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{figure}
 
 
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+\multicolumn{1}{|l|}{\textbf{Fator(es)}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
+\textbf{iA} & 6.00 & 0.44 & 28.97 & 1.15 \\ \hline
+\textbf{iB} & 77.29 & 1.82 & 0.02 & 0.29 \\ \hline
+\textbf{iC} & 0.01 & 0.11 & 26.29 & 68.52 \\ \hline
+\textbf{iD} & 11.27 & 64.16 & 35.92 & 28.06 \\ \hline
+\textbf{iAB} & 1.94 & 4.86 & 0.50 & 0.11 \\ \hline
+\textbf{iAC} & 0.11 & 10.86 & 7.35 & 0.16 \\ \hline
+\textbf{iAD} & 0.19 & 0.13 & 0.00 & 0.45 \\ \hline
+\textbf{iBC} & 0.00 & 3.03 & 0.09 & 0.14 \\ \hline
+\textbf{iBD} & 2.74 & 5.25 & 0.15 & 0.05 \\ \hline
+\textbf{iCD} & 0.01 & 0.06 & 0.14 & 0.88 \\ \hline
+\textbf{iABC} & 0.25 & 2.04 & 0.03 & 0.01 \\ \hline
+\textbf{iABD} & 0.06 & 5.05 & 0.23 & 0.11 \\ \hline
+\textbf{iACD} & 0.12 & 2.07 & 0.11 & 0.05 \\ \hline
+\textbf{iBCD} & 0.01 & 0.04 & 0.15 & 0.01 \\ \hline
+\textbf{iABCD} & 0.00 & 0.09 & 0.03 & 0.01 \\ \hline
+\end{tabular}
+\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 1 da avaliação de desempenho separados para o tipo de operação.}
+\end{center}
+\label{tab:influ1}
+\end{table}
+
+
 \begin{figure}[ht]
 \centering
 \subfigure[]{
@@ -314,7 +322,40 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 
 \section{Etapa 2: }\label{sec:etapa2}
 
-\begin{table}[htbp]
+\begin{figure} [ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_write.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita.}
+\label{fig:barra2_write}
+\end{center}
+\end{figure}
+
+\begin{figure} [ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_read.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura.}
+\label{fig:barra2_read}
+\end{center}
+\end{figure}
+
+\begin{figure} [ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randread.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura aleatória.}
+\label{fig:barra2_randread}
+\end{center}
+\end{figure}
+
+\begin{figure} [ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randwrite.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita aleatória.}
+\label{fig:barra2_randwrite}
+\end{center}
+\end{figure}
+
+
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|r|r|r|r|}
 \hline
@@ -331,39 +372,6 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{center}
 \label{tab:influ2}
 \end{table}
-
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_write.png}
-\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita.}
-\label{fig:barra2_write}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_read.png}
-\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura.}
-\label{fig:barra2_read}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randread.png}
-\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura aleatória.}
-\label{fig:barra2_randread}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randwrite.png}
-\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita aleatória.}
-\label{fig:barra2_randwrite}
-\end{center}
-\end{figure}
 
 
 \begin{figure}[ht]
@@ -392,24 +400,6 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \clearpage
 
 \section{Etapa 3: }\label{sec:etapa3}	
-
-\begin{table}[htbp]
-\begin{center}
-\begin{tabular}{|l|r|r|r|r|}
-\hline
-\multicolumn{1}{|l|}{\textbf{Fator(es)}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
-\textbf{iA} & 94.36 & 14.81 & 0.74 & 0.08 \\ \hline
-\textbf{iC} & 0.10 & 0.01 & 23.52 & 56.45 \\ \hline
-\textbf{iD} & 3.19 & 64.68 & 69.60 & 43.08 \\ \hline
-\textbf{iAC} & 0.63 & 5.26 & 0.01 & 0.14 \\ \hline
-\textbf{iAD} & 1.40 & 14.35 & 0.88 & 0.01 \\ \hline
-\textbf{iCD} & 0.22 & 0.88 & 4.80 & 0.25 \\ \hline
-\textbf{iACD} & 0.09 & 0.00 & 0.45 & 0.00 \\ \hline
-\end{tabular}
-\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 3 da avaliação de desempenho separados para o tipo de operação.}
-\end{center}
-\label{tab:influ3}
-\end{table}
 
 
 \begin{figure} [!ht]
@@ -443,6 +433,25 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \label{fig:barra3_randwrite}
 \end{center}
 \end{figure}
+
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+\multicolumn{1}{|l|}{\textbf{Fator(es)}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
+\textbf{iA} & 94.36 & 14.81 & 0.74 & 0.08 \\ \hline
+\textbf{iC} & 0.10 & 0.01 & 23.52 & 56.45 \\ \hline
+\textbf{iD} & 3.19 & 64.68 & 69.60 & 43.08 \\ \hline
+\textbf{iAC} & 0.63 & 5.26 & 0.01 & 0.14 \\ \hline
+\textbf{iAD} & 1.40 & 14.35 & 0.88 & 0.01 \\ \hline
+\textbf{iCD} & 0.22 & 0.88 & 4.80 & 0.25 \\ \hline
+\textbf{iACD} & 0.09 & 0.00 & 0.45 & 0.00 \\ \hline
+\end{tabular}
+\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 3 da avaliação de desempenho separados para o tipo de operação.}
+\end{center}
+\label{tab:influ3}
+\end{table}
 
 
 \begin{figure}[ht]
@@ -485,6 +494,7 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 
 \anexo
 \chapter{Scripts utilizados}
+\label{cap:scripts}
 
 \section{Execução dos experimentos}
 

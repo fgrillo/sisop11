@@ -9,9 +9,8 @@
 \contentsline {section}{\numberline {2.1}XFS}{10}
 \contentsline {section}{\numberline {2.2}Ext4}{10}
 \contentsline {section}{\numberline {2.3}ReiserFS}{10}
-\contentsline {section}{\numberline {2.4}IOzone}{12}
-\contentsline {section}{\numberline {2.5}Avalia\c c\~ao de desempenho}{12}
-\contentsline {section}{\numberline {2.6}Ambiente}{12}
+\contentsline {section}{\numberline {2.4}IOzone}{11}
+\contentsline {section}{\numberline {2.5}Ambiente}{11}
 \contentsline {chapter}{\numberline {3}Planejamento e execu\c c\~ao}{13}
 \contentsline {section}{\numberline {3.1}Vari\'aveis de resposta, fatores e n\IeC {\'\i }veis}{13}
 \contentsline {section}{\numberline {3.2}Experimentos}{13}
@@ -24,12 +23,12 @@
 \contentsline {section}{\numberline {5.2}Etapa 2 }{27}
 \contentsline {section}{\numberline {5.3}Etapa 3 }{27}
 \contentsline {section}{\numberline {5.4}Considera\c c\~oes finais}{27}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{28}
+\contentsline {chapter}{Refer\^encias}{28}
 \contentsline {chapter}{Anexo{} A{} -$\mskip -\thinmuskip $-{} Scripts utilizados}{29}
 \contentsline {section}{\numberline {A.1}Execu\c c\~ao dos experimentos}{29}
 \contentsline {section}{\numberline {A.2}Extra\c c\~ao dos dados do log}{30}
 \contentsline {section}{\numberline {A.3}Gera\c c\~ao dos gr\'aficos de barra}{31}
-\contentsline {chapter}{Anexo{} B{} -$\mskip -\thinmuskip $-{} Dados coletados}{35}
-\contentsline {section}{\numberline {B.1}Ext4}{35}
-\contentsline {section}{\numberline {B.2}XFS}{38}
-\contentsline {section}{\numberline {B.3}ReiserFS}{41}
+\contentsline {chapter}{Anexo{} B{} -$\mskip -\thinmuskip $-{} Dados coletados}{34}
+\contentsline {section}{\numberline {B.1}Ext4}{34}
+\contentsline {section}{\numberline {B.2}XFS}{37}
+\contentsline {section}{\numberline {B.3}ReiserFS}{40}
