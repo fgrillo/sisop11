@@ -63,6 +63,7 @@ resumo aqui!
 \tableofcontents{}
 \listadefiguras
 \listadetabelas
+\lstlistoflistings
 
 \chapter{Introdução}\label{cap:introducao}
 

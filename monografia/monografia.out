@@ -1,24 +1,34 @@
-\BOOKMARK [0][-]{chapter.resumo.1}{Introdu\347\343o}{}
-\BOOKMARK [1][-]{section.resumo.1.1}{Contexto e Motiva\347\343o}{chapter.resumo.1}
-\BOOKMARK [1][-]{section.resumo.1.2}{Objetivos}{chapter.resumo.1}
-\BOOKMARK [1][-]{section.resumo.1.3}{Organiza\347\343o do trabalho}{chapter.resumo.1}
-\BOOKMARK [0][-]{chapter.resumo.2}{Metodos e Ferramentas}{}
-\BOOKMARK [1][-]{section.resumo.2.1}{XFS}{chapter.resumo.2}
-\BOOKMARK [1][-]{section.resumo.2.2}{Ext4}{chapter.resumo.2}
-\BOOKMARK [1][-]{section.resumo.2.3}{ReiserFS}{chapter.resumo.2}
-\BOOKMARK [1][-]{section.resumo.2.4}{IOzone}{chapter.resumo.2}
-\BOOKMARK [1][-]{section.resumo.2.5}{Avalia\347\343o de desempenho}{chapter.resumo.2}
-\BOOKMARK [1][-]{section.resumo.2.6}{Ambiente}{chapter.resumo.2}
-\BOOKMARK [0][-]{chapter.resumo.3}{Planejamento e execu\347\343o}{}
-\BOOKMARK [1][-]{section.resumo.3.1}{Vari\341veis de resposta, fatores e n\355veis}{chapter.resumo.3}
-\BOOKMARK [1][-]{section.resumo.3.2}{Experimentos}{chapter.resumo.3}
-\BOOKMARK [0][-]{chapter.resumo.4}{Resultados Obtidos}{}
-\BOOKMARK [1][-]{section.resumo.4.1}{Etapa 1: }{chapter.resumo.4}
-\BOOKMARK [1][-]{section.resumo.4.2}{Etapa 2: }{chapter.resumo.4}
-\BOOKMARK [1][-]{section.resumo.4.3}{Etapa 3: }{chapter.resumo.4}
-\BOOKMARK [0][-]{chapter.resumo.5}{Conclus\365es}{}
-\BOOKMARK [1][-]{section.resumo.5.1}{Etapa 1:}{chapter.resumo.5}
-\BOOKMARK [1][-]{section.resumo.5.2}{Etapa 2 }{chapter.resumo.5}
-\BOOKMARK [1][-]{section.resumo.5.3}{Etapa 3 }{chapter.resumo.5}
-\BOOKMARK [1][-]{section.resumo.5.4}{Considera\347\365es finais}{chapter.resumo.5}
-\BOOKMARK [0][-]{section.resumo.5.4}{Refer\352ncias Bibliogr\341ficas}{}
+\BOOKMARK [0][-]{chapter*.1}{Lista de Figuras}{}
+\BOOKMARK [0][-]{chapter*.2}{Lista de Tabelas}{}
+\BOOKMARK [0][-]{chapter.listoftables.1}{Introdu\347\343o}{}
+\BOOKMARK [1][-]{section.listoftables.1.1}{Contexto e Motiva\347\343o}{chapter.listoftables.1}
+\BOOKMARK [1][-]{section.listoftables.1.2}{Objetivos}{chapter.listoftables.1}
+\BOOKMARK [1][-]{section.listoftables.1.3}{Organiza\347\343o do trabalho}{chapter.listoftables.1}
+\BOOKMARK [0][-]{chapter.listoftables.2}{Metodos e Ferramentas}{}
+\BOOKMARK [1][-]{section.listoftables.2.1}{XFS}{chapter.listoftables.2}
+\BOOKMARK [1][-]{section.listoftables.2.2}{Ext4}{chapter.listoftables.2}
+\BOOKMARK [1][-]{section.listoftables.2.3}{ReiserFS}{chapter.listoftables.2}
+\BOOKMARK [1][-]{section.listoftables.2.4}{IOzone}{chapter.listoftables.2}
+\BOOKMARK [1][-]{section.listoftables.2.5}{Avalia\347\343o de desempenho}{chapter.listoftables.2}
+\BOOKMARK [1][-]{section.listoftables.2.6}{Ambiente}{chapter.listoftables.2}
+\BOOKMARK [0][-]{chapter.listoftables.3}{Planejamento e execu\347\343o}{}
+\BOOKMARK [1][-]{section.listoftables.3.1}{Vari\341veis de resposta, fatores e n\355veis}{chapter.listoftables.3}
+\BOOKMARK [1][-]{section.listoftables.3.2}{Experimentos}{chapter.listoftables.3}
+\BOOKMARK [0][-]{chapter.listoftables.4}{Resultados Obtidos}{}
+\BOOKMARK [1][-]{section.listoftables.4.1}{Etapa 1: }{chapter.listoftables.4}
+\BOOKMARK [1][-]{section.listoftables.4.2}{Etapa 2: }{chapter.listoftables.4}
+\BOOKMARK [1][-]{section.listoftables.4.3}{Etapa 3: }{chapter.listoftables.4}
+\BOOKMARK [0][-]{chapter.listoftables.5}{Conclus\365es}{}
+\BOOKMARK [1][-]{section.listoftables.5.1}{Etapa 1:}{chapter.listoftables.5}
+\BOOKMARK [1][-]{section.listoftables.5.2}{Etapa 2 }{chapter.listoftables.5}
+\BOOKMARK [1][-]{section.listoftables.5.3}{Etapa 3 }{chapter.listoftables.5}
+\BOOKMARK [1][-]{section.listoftables.5.4}{Considera\347\365es finais}{chapter.listoftables.5}
+\BOOKMARK [0][-]{section.listoftables.5.4}{Refer\352ncias Bibliogr\341ficas}{}
+\BOOKMARK [0][-]{chapter.annex.A}{Anexo A \204 Scripts utilizados}{}
+\BOOKMARK [1][-]{section.annex.A.1}{Execu\347\343o dos experimentos}{chapter.annex.A}
+\BOOKMARK [1][-]{section.annex.A.2}{Extra\347\343o dos dados do log}{chapter.annex.A}
+\BOOKMARK [1][-]{section.annex.A.3}{Gera\347\343o dos gr\341ficos de barra}{chapter.annex.A}
+\BOOKMARK [0][-]{chapter.annex.B}{Anexo B \204 Dados coletados}{}
+\BOOKMARK [1][-]{section.annex.B.1}{Ext4}{chapter.annex.B}
+\BOOKMARK [1][-]{section.annex.B.2}{XFS}{chapter.annex.B}
+\BOOKMARK [1][-]{section.annex.B.3}{ReiserFS}{chapter.annex.B}

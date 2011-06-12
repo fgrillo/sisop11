@@ -6,12 +6,10 @@
 \usepackage {graphicx}
 \usepackage{babel}
 \usepackage{setspace}
-%\usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage {fancyvrb}
 \usepackage{color}
-\usepackage{textcomp}
 \usepackage{subfigure}
-\usepackage{listings}
 
 \makeatletter
 \makeatother
@@ -19,9 +17,6 @@
 \definecolor{light-gray}{gray}{0.6}
 
 \begin{document}
-\renewcommand{\lstlistlistingname}{Lista de Listagens}
-\renewcommand{\lstlistingname}{Listagem}
-
 \autor{Fausto Guzzo da Costa \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nUsp: 5230736\\ Filipe Del Nero Grillo \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nUsp: 5378140 \\ Vinicíus Augusto Tagliatti Zani \ \ \ \ \ \ \ nUsp: 5118935}
 
 
@@ -33,8 +28,8 @@
 
 
 \instituicao{Instituto de Ciências Matemáticas e de Computação \par Universidade
-de São Paulo \par ICMC - USP
-}
+de São Paulo \par ICMC - USP}
+
 
 \local{São Carlos - SP, Brasil}
 
@@ -61,8 +56,6 @@ resumo aqui!
 
 
 \tableofcontents{}
-\listadefiguras
-\listadetabelas
 
 \chapter{Introdução}\label{cap:introducao}
 
@@ -130,54 +123,6 @@ Principais desvantagens:
 \section{Variáveis de resposta, fatores e níveis}\label{sec:fatores}
 
 \section{Experimentos}\label{sec:experimentos}
-
-\begin{table}[htbp]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-\textbf{Experimento} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} \\ \hline
-\textbf{1} & 1 & 1 & 1 & 1 \\ \hline
-\textbf{2} & 1 & 1 & 1 & -1 \\ \hline
-\textbf{3} & 1 & 1 & -1 & 1 \\ \hline
-\textbf{4} & 1 & 1 & -1 & -1 \\ \hline
-\textbf{5} & 1 & -1 & 1 & 1 \\ \hline
-\textbf{6} & 1 & -1 & 1 & -1 \\ \hline
-\textbf{7} & 1 & -1 & -1 & 1 \\ \hline
-\textbf{8} & 1 & -1 & -1 & -1 \\ \hline
-\textbf{9} & -1 & 1 & 1 & 1 \\ \hline
-\textbf{10} & -1 & 1 & 1 & -1 \\ \hline
-\textbf{11} & -1 & 1 & -1 & 1 \\ \hline
-\textbf{12} & -1 & 1 & -1 & -1 \\ \hline
-\textbf{13} & -1 & -1 & 1 & 1 \\ \hline
-\textbf{14} & -1 & -1 & 1 & -1 \\ \hline
-\textbf{15} & -1 & -1 & -1 & 1 \\ \hline
-\textbf{16} & -1 & -1 & -1 & -1 \\ \hline
-\end{tabular}
-\caption{Níveis utilizados em cada um dos experimentos para a Etapa 1}
-\end{center}
-\label{etapa1_experimentos}
-\end{table}
-
-\begin{table}[htbp]
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Experimento} & \textbf{A} & \textbf{C} & \textbf{D} \\ \hline
-\textbf{1} & 1 & 1 & 1 \\ \hline
-\textbf{2} & 1 & 1 & -1 \\ \hline
-\textbf{3} & 1 & -1 & 1 \\ \hline
-\textbf{4} & 1 & -1 & -1 \\ \hline
-\textbf{5} & -1 & 1 & 1 \\ \hline
-\textbf{6} & -1 & 1 & -1 \\ \hline
-\textbf{7} & -1 & -1 & 1 \\ \hline
-\textbf{8} & -1 & -1 & -1 \\ \hline
-\end{tabular}
-\caption{Níveis utilizados em cada um dos experimentos para as Etapa 2 e 3}
-\end{center}
-\label{etapa2e3_experimentos}
-\end{table}
-
-
 
 \chapter{Resultados Obtidos}\label{cap:resultados}
 
@@ -337,73 +282,7 @@ Principais desvantagens:
 \bibliography{monografia}
 
 \anexo
-\chapter{Scripts utilizados}
-
-\section{Execução dos experimentos}
-
-\lstset{
-	numbers=left,
-	language=bash,
-        basicstyle=\scriptsize,
-        upquote=true,
-        aboveskip={1.5\baselineskip},
-        columns=fixed,
-        showstringspaces=false,
-        extendedchars=true,
-        breaklines=true,
-        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
-        frame=single,
-        showtabs=false,
-        showspaces=false,
-        showstringspaces=false,
-	tabsize=1,
-        identifierstyle=\ttfamily,
-        keywordstyle=\color[rgb]{0,0,1},
-        commentstyle=\color[rgb]{0.133,0.545,0.133},
-        stringstyle=\color[rgb]{0.627,0.126,0.941},
-	captionpos=b,
-	caption={Script bash utilizado para execução dos experimentos. Foi executado uma vez com a máquina com 2GB de memória RAM e outra com 1GB de memória RAM.}
-}
-\lstinputlisting{include/execute.sh}
-
-
-\section{Extração dos dados do log}
-
-\lstset{
-	captionpos=b,
-	caption={Script bash utilizado para extrair os dados dos log dos experimentos para um formato separado por vírgulas que possibilitava a importação para uma planilha do OpenOffice.}
-}
-\lstinputlisting{include/extract.sh}
-
-\section{Geração dos gráficos de barra}
-
-\lstset{
-	numbers=left,
-	language=Gnuplot,
-        basicstyle=\scriptsize,
-        upquote=true,
-        aboveskip={1.5\baselineskip},
-        columns=fixed,
-        showstringspaces=false,
-        extendedchars=true,
-        breaklines=true,
-        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
-        frame=single,
-        showtabs=false,
-        showspaces=false,
-        showstringspaces=false,
-	tabsize=1,
-        identifierstyle=\ttfamily,
-        keywordstyle=\color[rgb]{0,0,1},
-        commentstyle=\color[rgb]{0.133,0.545,0.133},
-        stringstyle=\color[rgb]{0.627,0.126,0.941},
-	captionpos=b,
-	caption={Script do Gnuplot utilizado gerar os gráficos de barra para comparação dos exeperimentos. Ele utiliza arquivos de dados que foram extraídos das tabelas que podem ser vistas no Anexo \ref{chap:dados}}
-}
-\lstinputlisting{include/plot.gp}
-
 \chapter{Dados coletados}
-\label{chap:dados}
 
 \section{Ext4}
 
@@ -455,86 +334,9 @@ Principais desvantagens:
 \end{center}
 \end{figure}
 
-\clearpage
-
 \section{XFS}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_1.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_2.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_3.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_4.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_5.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_6.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_7.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_8.png}
-\end{center}
-\end{figure}
-
-\clearpage
 
 \section{ReiserFS}
 
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/reiser_1.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/reiser_2.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/reiser_3.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/reiser_4.png}
-\end{center}
-\end{figure}
-
-\clearpage
 
 \end{document}
