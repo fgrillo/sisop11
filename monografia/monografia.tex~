@@ -63,7 +63,6 @@ resumo aqui!
 \tableofcontents{}
 \listadefiguras
 \listadetabelas
-\lstlistoflistings
 
 \chapter{Introdução}\label{cap:introducao}
 
@@ -129,6 +128,51 @@ Principais desvantagens:
 \chapter{Planejamento e execução}\label{cap:planejamento}
 
 \section{Variáveis de resposta, fatores e níveis}\label{sec:fatores}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Fator} & \textbf{Nível 1} & \textbf{Nível -1} \\ \hline
+A - Sistema de arquivo & Ext4 & XFS \\ \hline
+B - Tamanho do bloco & 4KB & 1KB \\ \hline
+C - Memória RAM & 1GB & 2GB \\ \hline
+D - Tamanho do arquivo & 64KB & 64MB \\ \hline
+\end{tabular}
+\caption{Fatores e níveis escolhidos para a Etapa 1.}
+\end{center}
+\label{etapa1_niveis}
+\end{table}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Fator} & \textbf{Nível 1} & \textbf{Nível -1} \\ \hline
+A - Sistema de arquivo & Ext4 & ReiserFS \\ \hline
+C - Memória RAM & 1GB & 2GB \\ \hline
+D - Tamanho do arquivo & 64KB & 64MB \\ \hline
+\end{tabular}
+\caption{Fatores e níveis escolhidos para a Etapa 2.}
+\end{center}
+\label{etapa2_niveis}
+\end{table}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Fator} & \textbf{Nível 1} & \textbf{Nível -1} \\ \hline
+A - Sistema de arquivo & XFS & ReiserFS \\ \hline
+C - Memória RAM & 1GB & 2GB \\ \hline
+D - Tamanho do arquivo & 64KB & 64MB \\ \hline
+\end{tabular}
+\caption{Fatores e níveis escolhidos para a Etapa 3.}
+\end{center}
+\label{etapa3_niveis}
+\end{table}
+
+
 
 \section{Experimentos}\label{sec:experimentos}
 
@@ -211,6 +255,39 @@ Principais desvantagens:
 \end{table}
 
 
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_write.png}
+\caption {Gráfico comparando os experimentos da Etapa 1 na operação de Escrita.}
+\label{fig:barra1_write}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_read.png}
+\caption {Gráfico comparando os experimentos da Etapa 1 na operação de Leitura.}
+\label{fig:barra1_read}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_randread.png}
+\caption {Gráfico comparando os experimentos da Etapa 1 na operação de Leitura aleatória.}
+\label{fig:barra1_randread}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_randwrite.png}
+\caption {Gráfico comparando os experimentos da Etapa 1 na operação de Escrita aleatória.}
+\label{fig:barra1_randwrite}
+\end{center}
+\end{figure}
+
+
 \begin{figure}[ht]
 \centering
 \subfigure[]{
@@ -233,7 +310,7 @@ Principais desvantagens:
 \caption{Gráficos com as influências dos fatores calculadas para as operações avaliadas na Etapa 1: \subref{fig:influ1_write} - Escrita, \subref{fig:influ1_read} - Leitura, \subref{fig:influ1_randread} - Leitura aleatória e \subref{fig:influ1_randwrite} - Escrita aleatória}
 \end{figure}
 
-
+\clearpage
 
 \section{Etapa 2: }\label{sec:etapa2}
 
@@ -254,6 +331,39 @@ Principais desvantagens:
 \end{center}
 \label{tab:influ2}
 \end{table}
+
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_write.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita.}
+\label{fig:barra2_write}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_read.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura.}
+\label{fig:barra2_read}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randread.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura aleatória.}
+\label{fig:barra2_randread}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randwrite.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita aleatória.}
+\label{fig:barra2_randwrite}
+\end{center}
+\end{figure}
 
 
 \begin{figure}[ht]
@@ -279,6 +389,8 @@ Principais desvantagens:
 \end{figure}
 
 
+\clearpage
+
 \section{Etapa 3: }\label{sec:etapa3}	
 
 \begin{table}[htbp]
@@ -298,6 +410,39 @@ Principais desvantagens:
 \end{center}
 \label{tab:influ3}
 \end{table}
+
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_write.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita.}
+\label{fig:barra2_write}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_read.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura.}
+\label{fig:barra2_read}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_randread.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura aleatória.}
+\label{fig:barra2_randread}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_randwrite.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita aleatória.}
+\label{fig:barra2_randwrite}
+\end{center}
+\end{figure}
 
 
 \begin{figure}[ht]
@@ -322,6 +467,7 @@ Principais desvantagens:
 \caption{Gráficos com as influências dos fatores calculadas para as operações avaliadas na Etapa 3: \subref{fig:influ3_write} - Escrita, \subref{fig:influ3_read} - Leitura, \subref{fig:influ3_randread} - Leitura aleatória e \subref{fig:influ3_randwrite} - Escrita aleatória}
 \end{figure}
 
+\clearpage
 	
 \chapter{Conclusões}\label{cap:conclusao}
 
