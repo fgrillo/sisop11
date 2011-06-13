@@ -79,6 +79,43 @@ resumo aqui!
 
 \section{Contexto e Motivação}\label{sec:contexto}
 
+A complexidade crescente presente nos computadores, motivada pelas necessidades
+cada vez mais apuradas de um mercado tecnológico em plena evolução, faz com que
+diversas funcionalidades que antigamente atendiam plenamente às necessidades se
+tornem obsoletas. Tais mudanças podem ser observadas no âmbito de hardware e
+software. Para os softwares, mais especificamente dentro do domínio de sistemas
+operacionais, a evolução também se mostra verdadeira, pois esse conjunto de
+sistemas é responsável por grande parte da integração que ocorre entre
+equipamentos de diversos fabricantes, além de prover abstração para que os
+componentes possam ser utilizados por terceiros, por via de softwares
+executáveis no contexto dos sistemas operacionais.
+Portanto, torna-se crescente a necessidade de melhores técnicas de utilização
+dos componentes periféricos, ao passo que a organização interna dos sistemas
+operacionais deve ser mantida coesa, segura e eficiente, objetivando uma
+evolução de longo prazo ao mesmo tempo em que as soluções para os problemas
+atuais são elaboradas.
+
+No contexto de utilização de disco, o sistema operacional encapsula as diversas
+marcas de diversos fabricantes em chamadas de rotina simples e genéricas que
+permitem uma utilização transparente pela camada de aplicações.
+Dessa forma o desenvolvedor de aplicações para o sistema operacional em questão
+deve saber somente o conjunto de chamadas genéricas que lhe permite executar as
+operações de leitura, escrita, abertura e fechamento de arquivos. Cabe assim ao
+sistema operacional gerir o fluxo de informações e sua organização interna,
+abstraindo os arquivos lógicos --- aqueles visíveis para as aplicações --- em
+arquivos físicos --- mapeados em hardware. 
+A gestão de arquivos lógicos e seu mapeamento em partes físicas é foco de estudo
+desde há muito tempo no domínio de sistemas operacionais, pois é sabido que o
+armazenamento secundário é um grande gargalo a ser enfrentado em aplicações que
+o utilizam.
+
+Assim sendo, diversas propostas têm sido feitas para gestão interna de arquivos
+de sistemas operacionais. No contexto de sistemas operacionais de código aberto,
+podemos encontrar propostas de sistemas de arquivos. Nesse âmbito Ext4, XFS e
+ReiserFS foram lançados ao público como sistemas de arquivos eficientes para o
+sistema operacional Linux, baseado em Unix, e têm tido adoção crescente como
+consequência das funcionalidades que oferecem para realização de gestão de arquivos.
+
 %%%% ------------------------------------------------------------------
 		
 \section{Objetivos}\label{sec:objetivos}
@@ -278,12 +315,43 @@ A Figura \ref{fig:reisertree} mostra um exemplo da estrutura de árvore utilizada
 %%%% ------------------------------------------------------------------
 %%%% ------------------------------------------------------------------
 
-\chapter{Metodos e Ferramentas}\label{cap:metodos}
+\chapter{Métodos e Ferramentas}\label{cap:metodos}
 
-A seguir encontra-se uma descrição detalhada das ferramentas utilizadas e o
+A seguir encontra-se uma descrição detalhada da ferramenta utilizada e o
 ambiente no qual os experimentos foram executados.
 
 \section{IOzone}\label{sec:iozone}
+
+A ferramenta IOzone é uma ferramenta de avaliação de desempenho de sistemas de
+arquivo \cite{IOZone06IFB}.
+Esta ferramenta foi disponibilizada para diversas versões de sistemas
+operacionais, incluindo Kubuntu Linux, a distribuição Linux utilizada para
+realização da avaliação de desempenho desse trabalho. 
+Quando a ferramenta é utilizada, ela simula a utilização dos discos de uma
+máquina, ao passo em que faz medições de tempo, utilização e taxa de
+entrada/saída para os algoritmos utilizados. Assim, são operações utilizáveis
+e mensuráveis:
+\begin{multicols}{2}
+\begin{itemize}
+  \item Read;
+  \item Write;
+  \item Re-read;
+  \item Re-write;
+  \item Read backwards;
+  \item Read strided;
+  \item Fread;
+  \item Fwrite;
+  \item Random read;
+  \item Pread;
+  \item Mmap;
+  \item Aio read; e
+  \item Aio write.
+\end{itemize}
+\end{multicols}
+
+No contexto desta avaliação de desempenho foram utilizadas somente medidas para
+\emph{Read}, \emph{Random read}, \emph{Write} e \emph{Random write}.
+
 
 \section{Ambiente}\label{sec: ambiente}
 
@@ -296,7 +364,11 @@ Os experimentos foram executados computador desktop com as seguintes configuraçõ
 \item Sistema operacional: Kubuntu Linux 10.10 32bits, Kernel 2.6.35-28-generic
 \end{itemize}
 
-Para execução das repetições de cada experimento foi criado um \textit{script} bash que roda automaticamente todas as variações de fatores para a configuração de memória RAM da máquina. Então é necessário alterar a configuração de memória manualmente e depois executar o \textit{script} novamente. O \textit{script} pode ser encontrado no Anexo \ref{cap:scripts}.
+Para execução das repetições de cada experimento foi criado um \textit{script}
+bash que roda automaticamente todas as variações de fatores para a configuração
+de memória RAM da máquina. Então é necessário alterar a configuração de memória
+manualmente e depois executar o \textit{script} novamente. O \textit{script}
+pode ser encontrado no Anexo \ref{cap:scripts}.
 
 %%%% ------------------------------------------------------------------
 %%%% ------------------------------------------------------------------
