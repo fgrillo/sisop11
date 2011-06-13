@@ -1,0 +1,30 @@
+\select@language {brazil}
+\contentsline {figure}{\numberline {1}{\ignorespaces Uso de \emph {extents} no sistema de arquivos Ext4 \cite {Mathur07TNEFcsfp}.}}{13}
+\contentsline {figure}{\numberline {2}{\ignorespaces Modelo de \'arvore utilizado pelo ReiserFS com blocos internos representados pelos blocos retangulares e blocos folha representados por esferas.}}{15}
+\contentsline {figure}{\numberline {3}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 1 na opera\c c\~ao de Escrita.}}{19}
+\contentsline {figure}{\numberline {4}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 1 na opera\c c\~ao de Leitura.}}{20}
+\contentsline {figure}{\numberline {5}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 1 na opera\c c\~ao de Leitura aleat\'oria.}}{20}
+\contentsline {figure}{\numberline {6}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 1 na opera\c c\~ao de Escrita aleat\'oria.}}{21}
+\contentsline {figure}{\numberline {7}{\ignorespaces Gr\'aficos com as influ\^encias dos fatores calculadas para as opera\c c\~oes avaliadas na Etapa 1: \ref {sub@fig:influ1_write} - Escrita, \ref {sub@fig:influ1_read} - Leitura, \ref {sub@fig:influ1_randread} - Leitura aleat\'oria e \ref {sub@fig:influ1_randwrite} - Escrita aleat\'oria}}{22}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{22}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{22}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{22}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{22}
+\contentsline {figure}{\numberline {8}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 2 na opera\c c\~ao de Escrita.}}{23}
+\contentsline {figure}{\numberline {9}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 2 na opera\c c\~ao de Leitura.}}{24}
+\contentsline {figure}{\numberline {10}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 2 na opera\c c\~ao de Leitura aleat\'oria.}}{24}
+\contentsline {figure}{\numberline {11}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 2 na opera\c c\~ao de Escrita aleat\'oria.}}{25}
+\contentsline {figure}{\numberline {12}{\ignorespaces Gr\'aficos com as influ\^encias dos fatores calculadas para as opera\c c\~oes avaliadas na Etapa 2: \ref {sub@fig:influ2_write} - Escrita, \ref {sub@fig:influ2_read} - Leitura, \ref {sub@fig:influ2_randread} - Leitura aleat\'oria e \ref {sub@fig:influ2_randwrite} - Escrita aleat\'oria}}{26}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{26}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{26}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{26}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{26}
+\contentsline {figure}{\numberline {13}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 3 na opera\c c\~ao de Escrita.}}{27}
+\contentsline {figure}{\numberline {14}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 3 na opera\c c\~ao de Leitura.}}{28}
+\contentsline {figure}{\numberline {15}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 3 na opera\c c\~ao de Leitura aleat\'oria.}}{28}
+\contentsline {figure}{\numberline {16}{\ignorespaces Gr\'afico comparando os experimentos da Etapa 3 na opera\c c\~ao de Escrita aleat\'oria.}}{29}
+\contentsline {figure}{\numberline {17}{\ignorespaces Gr\'aficos com as influ\^encias dos fatores calculadas para as opera\c c\~oes avaliadas na Etapa 3: \ref {sub@fig:influ3_write} - Escrita, \ref {sub@fig:influ3_read} - Leitura, \ref {sub@fig:influ3_randread} - Leitura aleat\'oria e \ref {sub@fig:influ3_randwrite} - Escrita aleat\'oria}}{30}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{30}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{30}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{30}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{30}
