@@ -1,3 +1,0 @@
-\contentsline {lstlisting}{\numberline {A.1}Script bash utilizado para execu\c c\~ao dos experimentos. Foi executado uma vez com a m\'aquina com 2GB de mem\'oria RAM e outra com 1GB de mem\'oria RAM.}{22}
-\contentsline {lstlisting}{\numberline {A.2}Script bash utilizado para extrair os dados dos log dos experimentos para um formato separado por v\IeC {\'\i }rgulas que possibilitava a importa\c c\~ao para uma planilha do OpenOffice.}{23}
-\contentsline {lstlisting}{\numberline {A.3}Script do Gnuplot utilizado gerar os gr\'aficos de barra para compara\c c\~ao dos exeperimentos. Ele utiliza arquivos de dados que foram extra\IeC {\'\i }dos das tabelas que podem ser vistas no Anexo \ref {chap:dados}}{24}

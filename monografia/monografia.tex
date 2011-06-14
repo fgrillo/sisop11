@@ -498,9 +498,28 @@ XXX EXPLICAR COMO FOI A EXECUÇÃO XXX
 
 \chapter{Resultados Obtidos}\label{cap:resultados}
 
-Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2 e 3. Sendo que os gráficos de barra utilizados foram agrupados de modo que cada par de experimentos que possuam de variação entre eles apenas o fator Sistema de arquivo sejam exibidos juntos para facilitar a comparação de um sistema de arquivo em relação ao outro.
+Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2
+e 3. Os gráficos de barra utilizados foram agrupados de modo que cada
+par de experimentos que possuam de variação entre eles apenas o fator Sistema
+de arquivo sejam exibidos juntos para facilitar a comparação de um sistema de
+arquivo em relação ao outro.
 
-\section{Etapa 1: }\label{sec:etapa1}
+\section{Etapa 1: comparação entre Ext4 e XFS}\label{sec:etapa1}
+
+Na primeira etapa do trabalho os sistemas de arquivos Ext4 e XFS foram
+analisados em conjunto, a partir dos dados de experimentos de análise de
+desempenho realizados separadamente, conforme descrito no
+Capítulo \ref{cap:planejamento}.
+
+Como pode ser observado na Figura \ref{fig:barra1_write}, o sistema de arquivos
+XFS teve melhor desempenho para todos os experimentos envolvendo tamanho
+de blocos de 4 KB. Entretanto, quando o bloco passa a ser de 1 KB, nada pode se
+afirmar sobre qual dos dois sistemas de arquivos tem melhor desempenho, pois
+seus intervalos de confiança se sobrepõem. Nota-se também que o melhor
+desempenho de saída (MB/s) foi obtido utilizando XFS com blocos de 4 KB e
+arquivos de tamanho de 64 MB, onde nada pode se afirmar sobre a memória, pois
+para ambos os valores de 1 GB e 2 GB as taxas de saída com seus respectivos
+intervalos de confiança se sobrepõem.
 
 \begin{figure} [!ht]
 \begin{center}
@@ -510,6 +529,15 @@ Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2 e
 \end{center}
 \end{figure}
 
+Ao comparar XFS e Ext4 para operação de leitura --- exemplo da Figura
+\ref{fig:barra1_read} --- podemos notar que em dois experimentos o Ext4 possui
+melhor desempenho que XFS: na leitura de blocos de 1 KB, com memória de 2 GB e
+tamanho de arquivos de 64 KB; e em uma situação similar onde os tamanhos de
+arquivos são de 64 MB. Apesar da diferença ser significativa para o primeiro
+caso, para o segundo não é. Nos demais casos nada se pode afirmar sobre um
+melhor desempenho, pois os resultados obtidos possuem intervalos de confiança
+sobrepostos quando comparados.
+
 \begin{figure} [!ht]
 \begin{center}
 \includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_read.png}
@@ -517,6 +545,16 @@ Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2 e
 \label{fig:barra1_read}
 \end{center}
 \end{figure}
+
+Para a operação de leitura randômica, XFS e Ext4 obtiveram desempenhos
+similares, com diferenças tênues para grande parte dos casos, como visto na
+Figura \ref{fig:barra1_randread}. Um dos resultados com grande diferença ---
+mas também grandes intervalos de confiança --- foi observado quando blocos de 4
+KB foram utilizados com 1 GB de memória com arquivos de tamanho de 64 KB. Nesse
+experimento, o Ext4 teve um desempenho \emph{médio} inferior ao XFS.
+Entretanto, os intervalos de confiança se sobrepõem nos limites, fazendo com
+que não seja possível afirmar com a certeza desejada qual se comporta da melhor
+forma sob tais circunstâncias.
 
 \begin{figure} [!ht]
 \begin{center}
@@ -526,6 +564,19 @@ Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2 e
 \end{center}
 \end{figure}
 
+Por fim, na comparação utilizando operações de escrita randômica (vista na
+Figura \ref{fig:barra1_randwrite}) o XFS teve um desempenho visivelmente
+superior que o Ext4 quando os blocos eram de 4 KB, a memória de 2 GB e arquivos
+de 64 KB. Uma diferença um pouco menor, com \emph{throughput} similar, pode ser
+notada quando blocos de 1 KB, memória de 2 GB e arquivos de 64 MB são
+utilizados. Os maiores desempenhos de \emph{throughput} são observados
+quando a seguinte configuração é adotada: blocos de 4 KB, memória de 1 GB e
+tamanho de arquivos de 64 KB. Ainda, uma variação dessa configuração com blocos
+de 1 KB obtém performance mais previsível, ou seja, com menor intervalo de
+confiança.
+De forma geral nesse teste os sistemas de arquivos se comportam de maneira
+similar, à parte exceções detalhadas previamente.
+
 \begin{figure} [!ht]
 \begin{center}
 \includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_randwrite.png}
@@ -534,6 +585,8 @@ Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2 e
 \end{center}
 \end{figure}
 
+Por fim, ao utilizar os dados das medições, foi possível calcular as influências
+dos fatores, apresentados na Tabela \ref{tab:influ1}.
 
 \begin{table}[htbp]
 \begin{center}
