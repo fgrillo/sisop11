@@ -1,1 +1,10 @@
 .svn
+*.bbl
+*.aux.
+*.blg
+*.lof
+*.log
+*.toc
+*.lol
+*.lot
+.tex~
