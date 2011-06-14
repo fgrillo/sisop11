@@ -674,6 +674,19 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{table}
 
+Nos gráficos gerados a partir dessa tabela (vide Figura
+\ref{fig:etapa1_influs}), é possível notar que o tamanho de blocos é um fator
+que possui grande influência quando comparamos o desempenho de Ext4 e XFS
+para a operação de escrita. Esse fator faz com que o desempenho ambos os
+sistemas de arquivos seja visivelmente degradado quando blocos pequenos são
+utilizados. Também podemos notar que o tamanho de arquivos é um fator de grande
+influência quando comparamos Ext4 e XFS para as operações de leitura, leitura
+randômica e escrita randômica. Arquivos maiores (64 MB) degradaram o desempenho
+de ambos os sistemas de arquivos. Por fim, a quantidade de memória disponível é
+também um fator de grande importância para operações de leitura randômica e
+escrita randômica. Nesse caso, com o aumento da memória disponível há uma
+degradação no desempenho de ambos os sistemas de arquivos, onde essa degradação
+é mais visível para o Ext4.
 
 \begin{figure}[ht]
 \centering
@@ -699,7 +712,22 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 
 \clearpage
 
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+
 \section{Etapa 2: comparação entre EXT4 e ReiserFS}\label{sec:etapa2}
+
+Na segunda etapa do trabalho os sistemas de arquivos Ext4 e ReiserFS foram
+analisados em conjunto, a partir dos dados de experimentos de análise de
+desempenho realizados separadamente, conforme descrito no
+Capítulo \ref{cap:planejamento}. Vale ressaltar que o ReiserFS não disponibiliza
+opção de utilização de blocos de tamanho de 1 KB. Portanto, o Fator B, conforme
+apresentado na Tabela \ref{tab:etapa2_niveis}, não foi utilizado.
+
+Como pode ser observado na Figura \ref{fig:barra2_write}, o sistema de arquivos
+Ext4 possui melhor desempenho que o ReiserFS para todos os experimentos
+realizados com a operação de escrita.
 
 \begin{figure} [ht]
 \begin{center}
@@ -709,6 +737,13 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+Na Figura \ref{fig:barra2_read} --- que representa experimentos realizados para
+a operação de leitura --- o ReiserFS apresentou em geral um melhor desempenho que
+o Ext4, à parte o experimento 2, onde o segundo obteve um melhor desempenho.
+Nesse caso, a configuração utilizada foi de 1 GB de memória e arquivos de 64
+MB. Portanto, torna-se visível a degradação de desempenho do ReiserFS ao lidar
+com arquivos de grande tamanho.
+
 \begin{figure} [ht]
 \begin{center}
 \includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_read.png}
@@ -716,6 +751,14 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \label{fig:barra2_read}
 \end{center}
 \end{figure}
+
+Para a operação de leitura aleatória --- representada na  Figura
+\ref{fig:barra2_randread} --- os resultados não são conclusivos de um modo
+geral: o ReiserFS tem melhor desempenho para arquivos menores (64 KB) e memória
+de 1 GB, enquanto para uma mesma configuração com arquivos maiores (64 MB) o
+Ext4 o supera. Quando há mais memória disponível --- fator importante para
+\emph{caching} --- não se pode concluir sobre qual é o sistema de arquivos mais
+eficiente, pois os intervalos de confiança se sobrepõem.
 
 \begin{figure} [ht]
 \begin{center}
@@ -725,6 +768,12 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+Por fim, para a operação de escrita randômica (vide Figura
+\ref{fig:barra2_randwrite}), o ReiserFS obteve um melhor desempenho quando a
+configuração de fatores envolvia mais quantidade de memória (2 GB). Por outro
+lado, quando havia menor quantidade de memória (1 GB), nada se pode afirmar
+sobre o desempenho de ambos, pois os intervalos de confiança se sobrepõem.
+
 \begin{figure} [ht]
 \begin{center}
 \includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randwrite.png}
@@ -733,6 +782,8 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+Por fim, ao utilizar os dados das medições, foi possível calcular as influências
+dos fatores, apresentados na Tabela \ref{tab:influ2}.
 
 \begin{table}[ht]
 \begin{center}
@@ -752,6 +803,17 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \label{tab:influ2}
 \end{table}
 
+Nos gráficos gerados a partir dessa tabela (vide Figura
+\ref{fig:etapa2_influs}), é possível notar que o tamanho de arquivos é um fator
+que possui grande influência quando comparamos o desempenho de Ext4 e ReiserFS
+para as operações de leitura, leitura randômica e escrita randômica. Esse fator
+faz com que o desempenho do ReiserFS seja visivelmente degradado quando
+arquivos grandes são utilizados. Também podemos notar que a quantidade de
+memória disponível é um fator de grande importância quando comparamos o
+desempenho de Ext4 e ReiserFS para operações de leitura randômica e escrita
+randômica. Nesse caso, com o aumento da memória disponível há uma degradação no
+desempenho de ambos os sistemas de arquivos, onde essa degradação é mais
+visível para o ReiserFS.
 
 \begin{figure}[ht]
 \centering
@@ -777,6 +839,10 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 
 
 \clearpage
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
 
 \section{Etapa 3: comparação entre XFS e ReiserFS}\label{sec:etapa3}	
 
@@ -858,6 +924,16 @@ Para o cálculo da influência dos fatores, seguem a tabela \ref{tab:influ3} com o
 \label{tab:influ3}
 \end{table}
 
+Nos gráficos gerados a partir dessa tabela (vide Figura
+\ref{fig:etapa3_influs}), é possível notar que os próprios sistemas de arquivos
+têm influência quando comparados para a operação de escrita.
+Também podemos notar que o tamanho de arquivos é um fator de grande
+influência quando comparamos XFS e ReiserFS para as operações de leitura,
+leitura randômica e escrita randômica. Arquivos maiores (64 MB) degradaram o
+desempenho de ambos os sistemas de arquivos. 
+Por fim, a quantidade de memória disponível é também um fator de importância
+para operação de leitura randômica. Nesse caso, com o aumento da memória
+disponível há uma degradação no desempenho de ambos os sistemas de arquivos.
 
 \begin{figure}[ht]
 \centering
@@ -882,18 +958,41 @@ Para o cálculo da influência dos fatores, seguem a tabela \ref{tab:influ3} com o
 \end{figure}
 
 \clearpage
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
 	
 \chapter{Conclusões}\label{cap:conclusao}
 
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+
 \section{Etapa 1:}\label{sec:etapa1conc}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
 
 \section{Etapa 2 }\label{sec:etapa2conc}
 
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+
 \section{Etapa 3 }\label{sec:etapa3conc}	
 
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
 \section{Considerações finais}\label{sec:consideracoes}	
 	
 	
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+
 \bibliographystyle{abnt-num}
 \bibliography{monografia}
 
