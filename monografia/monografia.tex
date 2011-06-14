@@ -155,6 +155,66 @@ tópicos citados.
 
 \section{XFS}\label{sec:xfs}
 
+Nessa seção será primeiramente apresentada a história do desenvolvimento do XFS,
+e após a arquitetura do mesmo.
+
+\subsection{História}\label{subsection:xfs-historia}
+
+O sistema de arquivos XFS foi desenvolvido para o sistema operacional IRIX, da
+Silicon Graphics em 1994. Ele foi planejado para resolver os problemas do
+sistema de arquivos que era utilizado, o EFS (\emph{Extents File System}). Os
+problemas apresentados na época eram decorrentes de novas aplicações e novos
+\emph{hardwares} que estavam surgindo. Aplicações para edição de vídeo
+descomprimidos, por exemplo, precisavam alocar centenas de \emph{gigabytes} de
+espaço, e o EFS suportava apenas 8 GB de arquivos, sendo que cada arquivo podia
+ter no máximo 2 GB. Além disso, o acesso ao disco rígido precisava ser
+otimizado, pois havia muito \emph{overhead} \cite{xfsScability}.
+
+O XFS foi distribuído na licença GNU \emph{General Public License} em 2000, e o
+primeiro suporte à esse sistema de arquivos foi em 2001, no kernel 2.4 do Linux.
+Hoje ele está disponível para quase todas as distribuições Linux.
+
+\subsection{Arquitetura}\label{subsection:xfs-arch}
+
+Um sistema de arquivos XFS é dividido em vários Allocation Groups (AGs) de mesmo
+tamanho. Um AG pode ser pensado como sendo um sistema de arquivos autônomo,
+podendo ter até um \emph{terabyte} de tamanho, e tem as seguintes
+características:
+\begin{enumerate}[(i)]
+ \item Contém um superbloco descrevendo as suas informações;
+ \item Capacidade de gerenciar o seu espaço livre;
+ \item Aloca e busca por \emph{inodes}.
+\end{enumerate}
+A ideia do desenvolvimento do XFS com AGs, é que conforme o acesso concorrente
+aumenta no sistema de arquivos, o XFS consegue paralelizar as várias operações
+sem degradar o desempenho.
+
+Cada AG é dividido em 4 partes como mostra a figura \ref{fig:xfs_ag}. A primeira parte é o superbloco,
+responsável por guardar todas as informações do AG, como tamanho dos blocos, dos
+setores e dos \emph{inodes}, versão do XFS, contadores para número de \emph{inodes} alocados e
+livres, etc. Esse superbloco é replicado dentro do AG, então caso haja uma
+falha, ele pode ser recuperado.
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{images/xfs_ag.png}
+\caption {Detalhes de um \emph{Allocation Group} do XFS \cite{xfsStructure}.}
+\label{fig:xfs_ag}
+\end{center}
+\end{figure}
+
+A segunda parte do AG é o gerenciamento de espaço livre, que é feito através do
+uso de duas árvores B+. Por motivos de otimização, uma delas é ordenada por
+número do bloco, e a outra por quantidade de espaço contiguo.
+
+A terceira parte é responsável pelo gerenciamento de \emph{inodes} no sistema de
+arquivos, sendo responsável por alocar e buscar \emph{inodes}. Os \emph{inodes} são alocados
+em grupos de 64, e são buscados através de uma árvore B+.
+
+A quarta parte é responsável por reservar espaço para possível crescimento das
+árvores B+ descritas previamente. Esse espaço não pode ser alocado por nenhum
+outro tipo de dado.
+
 %%%% ------------------------------------------------------------------
 
 \section{Ext4}\label{sec:ext4}
@@ -639,7 +699,7 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 
 \clearpage
 
-\section{Etapa 2: }\label{sec:etapa2}
+\section{Etapa 2: comparação entre EXT4 e ReiserFS}\label{sec:etapa2}
 
 \begin{figure} [ht]
 \begin{center}
@@ -718,8 +778,18 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 
 \clearpage
 
-\section{Etapa 3: }\label{sec:etapa3}	
+\section{Etapa 3: comparação entre XFS e ReiserFS}\label{sec:etapa3}	
 
+A terceira etapa do trabalho é a comparação entre os sistemas de arquivo XFS e
+ReiserFS. Note que nessa etapa não foi considerado a mudança de tamanho de
+blocos, já que o ReiserFS não possibilitava a sua utilização com 1 KB. As
+discussões sobre os resultados obtidos nos gráficos seguintes serão, portanto,
+considerados sempre com tamanho de bloco de 4 KB.
+
+A partir do gráfico \ref{fig:barra3_write}, podemos concluir que o XFS desempenha
+a operação de escrita melhor que o ReiserFS. Sendo que os melhores resultados
+aparecem nos experimentos 2 e 4, ou seja, onde estava sendo utilizado arquivos
+grandes, de 64 MB. Note que a memória RAM não influencia muito esses resultados.
 
 \begin{figure} [!ht]
 \begin{center}
@@ -729,6 +799,12 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+Na operação de leitura, mostrada no gráfico \ref{fig:barra3_read}, há um ganho em
+quase todas as comparações do ReiserFS. Nota-se, principalmente, um ganho nos
+experimentos 5 e 7, onde foi considerado o teste com tamanho de arquivos
+pequenos e memória RAM variável. Novamente não há grande influência do uso da
+memória principal.
+
 \begin{figure} [!ht]
 \begin{center}
 \includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_read.png}
@@ -737,10 +813,19 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+As operações de escrita randômica e leitura randômica ficam bem próximas entre
+os sistemas de arquivos comparados, como é visto nos gráficos
+\ref{fig:barra3_randwrite} e \ref{fig:barra3_randread}, respectivamente. Através
+desses gráficos é possível visualizar que o melhor resultado é obtido nos
+experimentos 1 ou 5 em ambas operações. Estes experimentos utilizavam tamanhos de arquivos
+pequenos, de 64 KB e a memória principal de 2 GB. Note que a memória influencia
+muito nesses resultados.
+
 \begin{figure} [!ht]
 \begin{center}
 \includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_randread.png}
-\caption {Gráfico comparando os experimentos da Etapa 3 na operação de Leitura aleatória.}
+\caption {Gráfico comparando os experimentos da Etapa 3 na operação de Leitura
+aleatória.}
 \label{fig:barra3_randread}
 \end{center}
 \end{figure}
@@ -753,6 +838,7 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+Para o cálculo da influência dos fatores, seguem a tabela \ref{tab:influ3} com os dados e os gráficos de pizza na figura \ref{fig:etapa3_influs}.
 
 \begin{table}[htbp]
 \begin{center}

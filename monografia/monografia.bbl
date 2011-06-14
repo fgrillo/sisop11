@@ -5,11 +5,24 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.50 }
 
+\bibitem{xfsStructure}
+\abntrefinfo{Graphics}{GRAPHICS}{2006}
+{GRAPHICS, S. \emph{XFS Filesystem Structure}. 2006.
+Dispon{\'\i}vel em:
+  $<$http://xfs.org/docs/xfsdocs-xml-dev/XFS\_Filesystem\_Structure/tmp/en-US/%
+html/index.html$>$.}
+
 \bibitem{Mathur07TNEFcsfp}
 \abntrefinfo{Mathur et al.}{MATHUR et al.}{2007}
 {MATHUR, A. et al. The new ext4 filesystem: current status and future plans.
   In:  \emph{Proceedings of the Linux Symposium}. [s.n.], 2007. Dispon{\'\i}vel
   em: $<$http://kernel.org/doc/ols/2007/ols2007v2-pages-21-34.pdf$>$.}
+
+\bibitem{xfsScability}
+\abntrefinfo{Sweeney}{SWEENEY}{2006}
+{SWEENEY, A. \emph{Scalability in the XFS File System}. 2006.
+Dispon{\'\i}vel em:
+  $<$http://oss.sgi.com/projects/xfs/papers/xfs\_usenix/index.html$>$.}
 
 \bibitem{Card94DISEf}
 \abntrefinfo{Card, Ts'o e Tweedie}{CARD; TS'O; TWEEDIE}{1994}

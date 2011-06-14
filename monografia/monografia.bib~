@@ -166,12 +166,12 @@
  title = {Scalability in the XFS File System},
  year = {2006},
  author = {Sweeney, Andrew},
- url = {http://oss.sgi.com/projects/xfs/papers/xfs\_usenix/index.html},
+ url = {http://oss.sgi.com/projects/xfs/papers/xfsusenix/index.html},
 }
 
 @misc{xfsStructure,
  title = {XFS Filesystem Structure},
  year = {2006},
  author = {Silicon Graphics},
- url = {http://xfs.org/docs/xfsdocs-xml-dev/XFS\_Filesystem\_Structure/tmp/en-US/html/index.html},
+ url = {http://xfs.org/docs/xfsdocs-xml-dev/XFSFilesystemStructure/tmp/en-US/html/index.html},
 }
