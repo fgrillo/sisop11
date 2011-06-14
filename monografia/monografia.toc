@@ -1,0 +1,38 @@
+\select@language {brazil}
+\contentsline {chapter}{Lista de Figuras}{}
+\contentsline {chapter}{Lista de Tabelas}{}
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{9}
+\contentsline {section}{\numberline {1.1}Contexto e Motiva\c c\~ao}{9}
+\contentsline {section}{\numberline {1.2}Objetivos}{10}
+\contentsline {section}{\numberline {1.3}Organiza\c c\~ao do trabalho}{10}
+\contentsline {chapter}{\numberline {2}Fundamenta\c c\~ao}{11}
+\contentsline {section}{\numberline {2.1}Considera\c c\~oes iniciais}{11}
+\contentsline {section}{\numberline {2.2}XFS}{11}
+\contentsline {section}{\numberline {2.3}Ext4}{11}
+\contentsline {subsection}{\numberline {2.3.1}Hist\'oria}{11}
+\contentsline {subsection}{\numberline {2.3.2}Ext4}{13}
+\contentsline {section}{\numberline {2.4}ReiserFS}{14}
+\contentsline {chapter}{\numberline {3}M\'etodos e Ferramentas}{17}
+\contentsline {section}{\numberline {3.1}IOzone}{17}
+\contentsline {section}{\numberline {3.2}Ambiente}{18}
+\contentsline {chapter}{\numberline {4}Planejamento e execu\c c\~ao}{19}
+\contentsline {section}{\numberline {4.1}Vari\'aveis de resposta, fatores e n\IeC {\'\i }veis}{19}
+\contentsline {section}{\numberline {4.2}Experimentos}{20}
+\contentsline {chapter}{\numberline {5}Resultados Obtidos}{22}
+\contentsline {section}{\numberline {5.1}Etapa 1: }{22}
+\contentsline {section}{\numberline {5.2}Etapa 2: }{26}
+\contentsline {section}{\numberline {5.3}Etapa 3: }{30}
+\contentsline {chapter}{\numberline {6}Conclus\~oes}{34}
+\contentsline {section}{\numberline {6.1}Etapa 1:}{34}
+\contentsline {section}{\numberline {6.2}Etapa 2 }{34}
+\contentsline {section}{\numberline {6.3}Etapa 3 }{34}
+\contentsline {section}{\numberline {6.4}Considera\c c\~oes finais}{34}
+\contentsline {chapter}{Refer\^encias}{35}
+\contentsline {chapter}{Anexo{} A{} -$\mskip -\thinmuskip $-{} Scripts utilizados}{36}
+\contentsline {section}{\numberline {A.1}Execu\c c\~ao dos experimentos}{36}
+\contentsline {section}{\numberline {A.2}Extra\c c\~ao dos dados do log}{37}
+\contentsline {section}{\numberline {A.3}Gera\c c\~ao dos gr\'aficos de barra}{38}
+\contentsline {chapter}{Anexo{} B{} -$\mskip -\thinmuskip $-{} Dados coletados}{41}
+\contentsline {section}{\numberline {B.1}Ext4}{41}
+\contentsline {section}{\numberline {B.2}XFS}{44}
+\contentsline {section}{\numberline {B.3}ReiserFS}{47}

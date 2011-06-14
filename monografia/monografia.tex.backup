@@ -12,6 +12,7 @@
 \usepackage{textcomp}
 \usepackage{subfigure}
 \usepackage{listings}
+\usepackage{paralist} % para listas inline com inparaenum
 
 \makeatletter
 \makeatother
@@ -45,11 +46,14 @@ de São Paulo \par ICMC - USP
 
 \folhaderosto
 
+
 \begin{folhadeaprovacao}
-\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\
-\begin{flushright}{}``\emph{Por mais humilde que seja, um bom}\\
-\emph{trabalho inspira uma sensação de vitória.}\\
-{\small Jack Kemp}\end{flushright}{\small \par}
+\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\\ \\
+\begin{flushright}{}``\emph{É impossível avaliar a força que possuímos sem }\\
+\emph{medir o tamanho do obstáculo que podemos vencer, }\\
+\emph{nem o valor de uma ação sem sabermos}\\
+\emph{o sacrifício que ela comporta.}``\\
+{\small H. W. Beecher}\end{flushright}{\small \par}
 \end{folhadeaprovacao}
 
 \begin{resumo}
@@ -64,23 +68,226 @@ resumo aqui!
 \listadefiguras
 \listadetabelas
 
+\onehalfspacing
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
+
 \chapter{Introdução}\label{cap:introducao}
 
-	
+%%%% ------------------------------------------------------------------
+
 \section{Contexto e Motivação}\label{sec:contexto}
 
+A complexidade crescente presente nos computadores, motivada pelas necessidades
+cada vez mais apuradas de um mercado tecnológico em plena evolução, faz com que
+diversas funcionalidades que antigamente atendiam plenamente às necessidades se
+tornem obsoletas. Tais mudanças podem ser observadas no âmbito de hardware e
+software. Para os softwares, mais especificamente dentro do domínio de sistemas
+operacionais, a evolução também se mostra verdadeira, pois esse conjunto de
+sistemas é responsável por grande parte da integração que ocorre entre
+equipamentos de diversos fabricantes, além de prover abstração para que os
+componentes possam ser utilizados por terceiros, por via de softwares
+executáveis no contexto dos sistemas operacionais.
+Portanto, torna-se crescente a necessidade de melhores técnicas de utilização
+dos componentes periféricos, ao passo que a organização interna dos sistemas
+operacionais deve ser mantida coesa, segura e eficiente, objetivando uma
+evolução de longo prazo ao mesmo tempo em que as soluções para os problemas
+atuais são elaboradas.
+
+No contexto de utilização de disco, o sistema operacional encapsula as diversas
+marcas de diversos fabricantes em chamadas de rotina simples e genéricas que
+permitem uma utilização transparente pela camada de aplicações.
+Dessa forma o desenvolvedor de aplicações para o sistema operacional em questão
+deve saber somente o conjunto de chamadas genéricas que lhe permite executar as
+operações de leitura, escrita, abertura e fechamento de arquivos. Cabe assim ao
+sistema operacional gerir o fluxo de informações e sua organização interna,
+abstraindo os arquivos lógicos --- aqueles visíveis para as aplicações --- em
+arquivos físicos --- mapeados em hardware. 
+A gestão de arquivos lógicos e seu mapeamento em partes físicas é foco de estudo
+desde há muito tempo no domínio de sistemas operacionais, pois é sabido que o
+armazenamento secundário é um grande gargalo a ser enfrentado em aplicações que
+o utilizam.
+
+Assim sendo, diversas propostas têm sido feitas para gestão interna de arquivos
+de sistemas operacionais. No contexto de sistemas operacionais de código aberto,
+podemos encontrar propostas de sistemas de arquivos. Nesse âmbito Ext4, XFS e
+ReiserFS foram lançados ao público como sistemas de arquivos eficientes para o
+sistema operacional Linux, baseado em Unix, e têm tido adoção crescente como
+consequência das funcionalidades que oferecem para realização de gestão de arquivos.
+
+%%%% ------------------------------------------------------------------
 		
 \section{Objetivos}\label{sec:objetivos}
+
+Este trabalho tem como objetivo avaliar o desempenho dos sistemas de arquivos Ext4, XFS e ReiserFS em comparação uns aos outros. Esta avaliação pretende explicitar vantagens e desvantagens destes sistemas de arquivos e esclarecer em que situações cada um possui melhor desempenho. 
 
 
 \section{Organização do trabalho}\label{sec:organizacao}
 
+O Capítulo \ref{cap:fundamentacao} descreve os sistemas de arquivos que serão
+avaliados e apresenta as características necessárias para o correto
+entendimento da execução dos experimentos desse trabalho. O capítulo
+\ref{cap:metodos}, as ferramentas utilizadas para execução dos experimentos e o
+ambiente no qual foram executados são apresentados. No Capítulo
+\ref{cap:planejamento} descreve-se em detalhes o planejamento e a execução dos
+experimentos. São definidos os fatores e níveis que serão avaliados, a lista de
+todos os experimentos e o planejamento adotado.  O capítulo
+\ref{cap:resultados} traz os resultados obtidos através da coleta realizada nos
+experimentos e possuis gráficos comparativos dos experimentos bem como análise
+da influência dos fatores. Por fim, o Capítulo \ref{cap:conclusao} traz as
+conclusões sobre cada uma das etapas do experimento e considerações finais.
 
-\chapter{Metodos e Ferramentas}\label{cap:metodos}
+
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
+
+\chapter{Fundamentação}\label{cap:fundamentacao}
+
+\section{Considerações iniciais}\label{sec:cap2_consIni}
+
+Este trabalho envolve técnicas de Avaliação de Desempenho e os Sistemas de
+Arquivos XFS, EXT4 e ReiserFS. Este capítulo descreve os conceitos e teorias dos
+tópicos citados.
+
+%%%% ------------------------------------------------------------------
 
 \section{XFS}\label{sec:xfs}
 
+%%%% ------------------------------------------------------------------
+
 \section{Ext4}\label{sec:ext4}
+
+Nesta seção será apresentada a história do sistema de arquivos Ext até a chegada
+em sua última versão, a Ext4. Em seguida essa última versão será estudada em
+mais detalhes.
+
+\subsection{História}\label{subsection:ext-historia}
+
+O sistema de arquivos Ext --- \emph{Extended File System} --- nasceu através de
+pesquisas realizadas por Rémy Card et al. em 1992 \cite{Card94DISEf}, e foi
+integrada ao Linux em sua versão 0.96c. Esse novo sistema de arquivos resolveu
+duas grandes limitações impostas pelo sistema de arquivos Minix \cite{Silberschatz08OSC}:
+\begin{enumerate}[(i)]
+  \item O limite de 64 MB\footnote{\emph{Mega Bytes}: 1024 Bytes.} para tamanho
+  de arquivo: Ext passou a permitir arquivos de até 2 GB\footnote{\emph{Giga
+  Bytes}: 1024 MB.}; e
+  \item O limite de 14 caracteres para o nome do arquivo: Ext passou a permitir
+  nomes de arquivos de até 255 caracteres.
+\end{enumerate}
+Entretanto, alguns problemas ainda estavam presentes nessa implementação. Por
+exemplo, não havia acesso separado, modificação de \emph{inodes} e marcação de
+datas de modificação\footnote{O termo utilizado em inglês é \emph{timestamp}.}.
+Este sistema de arquivos utilizava listas encadeadas para manter controle dos
+blocos livres, e isso degradava a performance \cite{Card94DISEf}: à medida que o
+sistema operacional era utilizado, a lista se tornava não-ordenada, e o sitema
+de arquivos se tornava fragmentado.
+
+Como resposta a estes problemas, dois novos sistemas de arquivos foram
+desenvolvidos em versão alfa, em Janeiro de 1993: o sistema de arquivos Xia e o
+Ext2 --- \emph{Second Extended File System}. Enquanto o Xia representava algumas
+melhorias para o sistema Minix, o Ext2 era baseado no código do Ext e trazia
+melhorias como \cite{Card94DISEf}:
+\begin{enumerate}[(i)]
+  \item Suporte a padrões de arquivos Unix padrão;
+  \item Capacidade de gerir sistemas de arquivos criados em partições de até 4
+  TeraBytes, eliminando a necessidade de várias partições para utilização de
+  discos grandes;
+  \item Capacidade de nomes de arquivos de até 1012 caracteres; e
+  \item Reserva de blocos para super usuário (\emph{root}), em geral 5\%. Isso
+  permite com que administradores de sistema recuperem o sistema em situações
+  onde o disco fica cheio.
+\end{enumerate}
+
+Em novembro de 2001 foi introduzida uma nova versão do sistema de arquivos Ext,
+a Ext3. Com muitas novidades, essa versão foi rapidamente integrada às versões
+mais populares do Linux \cite{Mathur07TNEFcsfp}. Entre as inovações apresentadas
+por essa versão está a introdução de \emph{journaling} como ferramenta para
+aumento da confiabilidade de sistema, em casos onde há interrupção repentina do
+funcionamento do sistema operacional. A função do \emph{journaling} é salvar em
+um \emph{log} as operações a serem executadas. Esse \emph{log} é utilizado na
+inicialização do sistema para restaurá-lo a um estado válido.
+Com o passar do tempo, o sistema de arquivos Ext3 foi tornando-se limitado para
+as necessidades de utilização, tanto pessoal quanto na indústria, especialmente
+em relação ao seu limite de tamanho de arquivos. Assim uma atualização desse
+sistema de arquivos foi feita em 2006 \cite{Mathur07TNEFcsfp}. Em Dezembro de
+2008 surgiu o Ext4. Esse sistema será detalhado na sub-seção \ref{subsection:ext4}.
+
+Por fim, vale observar que as versões mais recentes do Ext sempre suportam as
+versões mais antigas, o que justifica a facilidade de adoção pelo mercado: não
+há esforço em migração de dados para novos formatos, pois o sistema pode operar
+ao mesmo tempo com partições de versões anteriores.
+
+%%%% ------------------------------------------------------------------
+
+\subsection{Ext4}\label{subsection:ext4}
+
+O sistema de arquivos Ext4 vem sendo utilizado no Linux desde a sua
+versão 2.6.19. Seus grandes objetivos são de resolver problemas de
+escalabilidade e de gargalo do seu antecessor --- o Ext3, detalhado na sub-seção
+\ref{subsection:ext-historia}.
+São avanços notados nesse sitema de arquivos \cite{Mathur07TNEFcsfp}:
+\begin{enumerate}
+  \item Utilização de 48 bits para mapeamento de blocos, frente aos 32 bits
+  utilizados pelo Ext3. Isso permite com que sistemas de arquivos de até
+  256 TB sejam mapeados;
+  
+  \item Utilização de \emph{extents} para gravação de arquivos. Um \emph{extent}
+  é uma posição contígua no disco, representada por início e fim em um descritor
+  contido em um \emph{inode}, num limite de quatro \emph{extents} por
+  \emph{inode}. Assim, arquivos fragmentados exigem mais \emph{extents} que um
+  arquivo pequeno ou contíguo em disco. Um \emph{extent} pode ter até 2$^{15}$
+  blocos, ou 128 MB quando os blocos são de 4 KB. Sua utilização otimiza tanto
+  leitura quanto escrita em disco para arquivos grandes. A solução implementada
+  no Ext3 --- mapeamento indireto de bloco --- era boa para arquivos pequenos e
+  esparsos, mas ineficiente para casos onde arquivos grandes eram utilizados.
+  Esse mapeamento de \emph{extents} é observado na Figura \ref{fig:ext4_extents};
+  
+  \item Utilização de bits reservados de \emph{inode} para mapear blocos de
+  arquivos, elevando a limitação de tamanhos de arquivos de 2 TB (Ext3)) para 16
+  TB (Ext4). Há um planejamento para que o limite seja elevado nas melhorias
+  futuras desse sistema de arquivos;
+  
+  \item Eliminação de restrição de número de subdiretórios contidos em um único
+  diretório, e indexação de diretórios usando uma árvore H\footnote{Uma árvore
+  H é uma implementação de árvores B usando \emph{hashes} de 32 bits.} de
+  profundidade fixa. O sistema de arquivos Ext3 possuía um limite de 32000 arquivos;
+  
+  \item Pré-alocação persistente, onde os blocos são reservados fisicamente no
+  disco para arquivos que ainda não os ocuparam. Essa característica é útil para
+  minimizar fragmentação de arquivos;
+  
+  \item Alocação atrasada de blocos múltiplos, onde as operações de escrita são
+  mantidas em \emph{cache} até que ocorra um \emph{flush} de página, e ele seja
+  de fato aplicado em disco. Essa característica melhora utilização de disco e
+  minimiza fragmentação, fazendo melhor uso dos \emph{extents};
+  
+  \item Melhorias na forma como a integridade do sistema de arquivos é
+  verificada (usando a ferramenta \emph{e2fsck}). O ganho de performance é
+  visível quando comparado à versão Ext3; e
+  
+  \item Utilização de \emph{checksum} CRC32 nos metadados utilizados para
+  recuperação do sistema de arquivos --- o \emph{journal}. Assim o sistema não
+  confia cegamente nos dados de reparação, e pode evitar danos de recuperação
+  indevida.
+\end{enumerate}
+
+As características acima descrita permitem obter uma melhor visão do sistema de
+arquivos Ext4, utilizado na avialiação de desempenho conduzida como foco desse
+trabalho.
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{images/ext4_extents.png}
+\caption {Uso de \emph{extents} no sistema de arquivos Ext4 \cite{Mathur07TNEFcsfp}.}
+\label{fig:ext4_extents}
+\end{center}
+\end{figure}
+
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
 
 \section{ReiserFS}\label{sec:reiser}
 
@@ -88,9 +295,7 @@ O ReiserFS foi criado em 1996 por Hans Thomas Reiser e se tornou muito famoso, e
 
 Passou a ser suportado oficialmente pelo kernel do linux a partir de sua versão 2.4 e chegou a ser adotado como sistema de arquivos padrão da distribuição comercial da Novell, o SUSE Linux Enterprise. Sua adoção foi baseada no fato do Reiser ser o único sistema de arquivos da época que possuia \textit{journaling} e também em acordos de suporte com a empresa de de seu criador a Namesys.
 
-Este sistema utiliza árvores B* para melhorar o desempenho em operações de busca. De acordo com a documentação encontrada sobre o sistema \cite{site reiser} ele pode ser utilizado com quatro opções de tamanho de bloco: 4096 (padrão), 512, 1024 e 8192 KBytes. No entanto, durante testes preliminares com o sistema Kubuntu 10.10 não foi possível criar um sistema de arquivos Reiser com tamanho de bloco diferente de 4096 KBytes.
-
-XXX Colocar um dump do terminal falando que não é possível utilizar outra opção de bloco.
+Este sistema utiliza árvores B* para melhorar o desempenho em operações de busca. De acordo com a documentação encontrada sobre o sistema\cite{sitereiser} ele pode ser utilizado com quatro opções de tamanho de bloco: 4096 (padrão), 512, 1024 e 8192 KBytes. No entanto, durante testes preliminares com o sistema Kubuntu 10.10 não foi possível criar um sistema de arquivos Reiser com tamanho de bloco diferente de 4096 KBytes. Em função disso, nas etapas 2 e 3 da avaliação o fator B - Tamanho do bloco não foi utilizado.
 
 Á estrutura de árvore utilizada possui dois tipos de nós: Nós internos e nós folhas e cada nó é um bloco do disco. O primeiro tipo é utilizado para manter a estrutura de árvore, apontando para outros blocos. Os nós folha são os itens propriamente ditos. No ReiserFS os itens podem representar arquivos, diretórios ou \textit{stat item}. Os arquivos podem ser de dois tipos, itens diretos ou indiretos, dependendo do tamanho do arquivo.
 
@@ -106,28 +311,87 @@ A Figura \ref{fig:reisertree} mostra um exemplo da estrutura de árvore utilizada
 \end{center}
 \end{figure}
 
-Principais vantagens:
-\begin{itemize}
-	\item vantagem 1
-	\item vantagem 2
-\end{itemize}
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
 
-Principais desvantagens:
-\begin{itemize}
-	\item desvantagem 1
-	\item desvantagem 2
-\end{itemize}
+\chapter{Métodos e Ferramentas}\label{cap:metodos}
+
+A seguir encontra-se uma descrição detalhada da ferramenta utilizada e o
+ambiente no qual os experimentos foram executados.
 
 \section{IOzone}\label{sec:iozone}
 
-\section{Avaliação de desempenho}\label{sec:avaliacao}
+A ferramenta IOzone é uma ferramenta de avaliação de desempenho de sistemas de
+arquivo \cite{IOZone06IFB}.
+Esta ferramenta foi disponibilizada para diversas versões de sistemas
+operacionais, incluindo Kubuntu Linux, a distribuição Linux utilizada para
+realização da avaliação de desempenho desse trabalho. 
+Quando a ferramenta é utilizada, ela simula a utilização dos discos de uma
+máquina, ao passo em que faz medições de tempo, utilização e taxa de
+entrada/saída para os algoritmos utilizados. Assim, são operações utilizáveis
+e mensuráveis:
+\begin{multicols}{2}
+\begin{itemize}
+  \item Read;
+  \item Write;
+  \item Re-read;
+  \item Re-write;
+  \item Read backwards;
+  \item Read strided;
+  \item Fread;
+  \item Fwrite;
+  \item Random read;
+  \item Pread;
+  \item Mmap;
+  \item Aio read; e
+  \item Aio write.
+\end{itemize}
+\end{multicols}
+
+No contexto desta avaliação de desempenho foram utilizadas somente medidas para
+\emph{Read}, \emph{Random read}, \emph{Write} e \emph{Random write}.
+
 
 \section{Ambiente}\label{sec: ambiente}
 
+Os experimentos foram executados computador desktop com as seguintes configurações:
+
+\begin{itemize}
+\item Processador: AMD Atlhon 64bits X2 Dual Core Processor 4000+
+\item Memória: 1GB/2GB (Dois pentes de 1GB) DDR2 800Mhz
+\item HD: Samsung SP2004C 200GB 7200rpm 8MB de cache
+\item Sistema operacional: Kubuntu Linux 10.10 32bits, Kernel 2.6.35-28-generic
+\end{itemize}
+
+Para execução das repetições de cada experimento foi criado um \textit{script}
+bash que roda automaticamente todas as variações de fatores para a configuração
+de memória RAM da máquina. Então é necessário alterar a configuração de memória
+manualmente e depois executar o \textit{script} novamente. O \textit{script}
+pode ser encontrado no Anexo \ref{cap:scripts}.
+
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
+%%%% ------------------------------------------------------------------
 
 \chapter{Planejamento e execução}\label{cap:planejamento}
 
+Neste capítulo são especificados o modelo de avaliação que foi adotado, quais as variáveis de resposta medidas, fatores e níveis considerados e como os experimentos foram divididos em etapas.
+
 \section{Variáveis de resposta, fatores e níveis}\label{sec:fatores}
+
+Para a escolha das variáveis de resposta foram escolhidas as operações mais comuns utilizados pelo sistemas operacionais que são escrita e leitura. Portanto, as variáveis de resposta escolhida foram:
+
+\begin{itemize}
+ \item Leitura
+ \item Escrita
+ \item Leitura aleatória
+ \item Escrita aleatória
+\end{itemize}
+
+Para a avaliação foi adotado o planejamento fatorial completo 2$^{4}$ na etapa 1 e fatorial completo 2$^{3}$ para as etapas 2 e 3 para manter a complexidade dos complexidade dos experimentos em um nível aceitável foram utilizados apenas 4 fatores que acredita-se que poderiam ter maior influência sobre os resultados dos experimentos e cada um deles com 2 níveis de variação.
+
+Para simplificar a execução dos experimentos e ainda assim comparar todos os sistemas uns com os outros, a avaliação foi dividida em 3 etapas. Na etapa 1 foram comparados os sistemas de arquivos Ext4 e o XFS. A Tabela \ref{tab:etapa1_niveis} mostra os fatores e níveis escolhidos para a etapa 1.
 
 \begin{table}[htbp]
 \begin{center}
@@ -140,9 +404,11 @@ C - Memória RAM & 1GB & 2GB \\ \hline
 D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{tabular}
 \caption{Fatores e níveis escolhidos para a Etapa 1.}
+\label{tab:etapa1_niveis}
 \end{center}
-\label{etapa1_niveis}
 \end{table}
+
+Na etapa 2 foram comparados os sistemas de arquivos Ext4 e ReiserFS e a Tabela \ref{tab:etapa2_niveis} mostra os fatores e níveis adotados para a etapa 2. Como foi dito anteriormente, o ReiserFS não permite a mundança do tamanho do bloco, este fator não foi considerado para as etapas 2 e 3 e o bloco ficou fixado em 4096 bytes para ambos os sistemas comparados nessas etapas.
 
 \begin{table}[htbp]
 \begin{center}
@@ -154,9 +420,11 @@ C - Memória RAM & 1GB & 2GB \\ \hline
 D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{tabular}
 \caption{Fatores e níveis escolhidos para a Etapa 2.}
+\label{tab:etapa2_niveis}
 \end{center}
-\label{etapa2_niveis}
 \end{table}
+
+Na etapa 3 foram comparados os sistemas XFS e ReiserFS. A Tabela \ref{tab:etapa3_niveis} mostra os fatores e níveis adotados para esta etapa.
 
 \begin{table}[htbp]
 \begin{center}
@@ -168,13 +436,15 @@ C - Memória RAM & 1GB & 2GB \\ \hline
 D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{tabular}
 \caption{Fatores e níveis escolhidos para a Etapa 3.}
+\label{tab:etapa3_niveis}
 \end{center}
-\label{etapa3_niveis}
 \end{table}
 
 
 
 \section{Experimentos}\label{sec:experimentos}
+
+Na etapa 1 da avaliação foram realizados 16 experimentos para cobrir todas as variações possíveis entre os 2 níves de cada um dos 4 fatores definidos anteriormente. Para as etapas 2 e 3 foram realizados 8 experimentos, novamente para cobrir todas as variações entre os 2 níveis e 3 fatores definidos anteriormente. Para cada experimento foram realizadas 10 repetições resultando em um total de 160 execuções na etapa 1, 80 execuções na etapa 2 e 80 execuções na etapa 3 em função de possuírem 1 fator a menos do que a etapa 1.
 
 \begin{table}[htbp]
 \begin{center}
@@ -199,8 +469,8 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \textbf{16} & -1 & -1 & -1 & -1 \\ \hline
 \end{tabular}
 \caption{Níveis utilizados em cada um dos experimentos para a Etapa 1}
+\label{tab:etapa1_experimentos}
 \end{center}
-\label{etapa1_experimentos}
 \end{table}
 
 \begin{table}[htbp]
@@ -218,17 +488,52 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \textbf{8} & -1 & -1 & -1 \\ \hline
 \end{tabular}
 \caption{Níveis utilizados em cada um dos experimentos para as Etapa 2 e 3}
+\label{tab:etapa2e3_experimentos}
 \end{center}
-\label{etapa2e3_experimentos}
 \end{table}
 
 
 
 \chapter{Resultados Obtidos}\label{cap:resultados}
 
+Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2 e 3. Sendo que os gráficos de barra utilizados foram agrupados de modo que cada par de experimentos que possuam de variação entre eles apenas o fator Sistema de arquivo sejam exibidos juntos para facilitar a comparação de um sistema de arquivo em relação ao outro.
+
 \section{Etapa 1: }\label{sec:etapa1}
 
-  \begin{table}[htbp]
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_write.png}
+\caption {Gráfico comparando os experimentos da Etapa 1 na operação de Escrita.}
+\label{fig:barra1_write}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_read.png}
+\caption {Gráfico comparando os experimentos da Etapa 1 na operação de Leitura.}
+\label{fig:barra1_read}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_randread.png}
+\caption {Gráfico comparando os experimentos da Etapa 1 na operação de Leitura aleatória.}
+\label{fig:barra1_randread}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_randwrite.png}
+\caption {Gráfico comparando os experimentos da Etapa 1 na operação de Escrita aleatória.}
+\label{fig:barra1_randwrite}
+\end{center}
+\end{figure}
+
+
+\begin{table}[htbp]
 \begin{center}
 \begin{tabular}{|l|r|r|r|r|}
 \hline
@@ -250,42 +555,9 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \textbf{iABCD} & 0.00 & 0.09 & 0.03 & 0.01 \\ \hline
 \end{tabular}
 \caption{Tabela com os valores calculados de influência dos fatores para a Etapa 1 da avaliação de desempenho separados para o tipo de operação.}
-\end{center}
 \label{tab:influ1}
+\end{center}
 \end{table}
-
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_write.png}
-\caption {caption.}
-\label{fig:barra1_write}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_read.png}
-\caption {caption.}
-\label{fig:barra1_read}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_randread.png}
-\caption {caption.}
-\label{fig:barra1_randread}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[scale=0.6]{images/ext4_xfs/ext4_xfs_randwrite.png}
-\caption {caption.}
-\label{fig:barra1_randwrite}
-\end{center}
-\end{figure}
 
 
 \begin{figure}[ht]
@@ -314,7 +586,40 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 
 \section{Etapa 2: }\label{sec:etapa2}
 
-\begin{table}[htbp]
+\begin{figure} [ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_write.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita.}
+\label{fig:barra2_write}
+\end{center}
+\end{figure}
+
+\begin{figure} [ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_read.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura.}
+\label{fig:barra2_read}
+\end{center}
+\end{figure}
+
+\begin{figure} [ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randread.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Leitura aleatória.}
+\label{fig:barra2_randread}
+\end{center}
+\end{figure}
+
+\begin{figure} [ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randwrite.png}
+\caption {Gráfico comparando os experimentos da Etapa 2 na operação de Escrita aleatória.}
+\label{fig:barra2_randwrite}
+\end{center}
+\end{figure}
+
+
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|r|r|r|r|}
 \hline
@@ -360,6 +665,40 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 
 \section{Etapa 3: }\label{sec:etapa3}	
 
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_write.png}
+\caption {Gráfico comparando os experimentos da Etapa 3 na operação de Escrita.}
+\label{fig:barra3_write}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_read.png}
+\caption {Gráfico comparando os experimentos da Etapa 3 na operação de Leitura.}
+\label{fig:barra3_read}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_randread.png}
+\caption {Gráfico comparando os experimentos da Etapa 3 na operação de Leitura aleatória.}
+\label{fig:barra3_randread}
+\end{center}
+\end{figure}
+
+\begin{figure} [!ht]
+\begin{center}
+\includegraphics[scale=0.6]{images/xfs_reiser/xfs_reiserfs_randwrite.png}
+\caption {Gráfico comparando os experimentos da Etapa 3 na operação de Escrita aleatória.}
+\label{fig:barra3_randwrite}
+\end{center}
+\end{figure}
+
+
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{|l|r|r|r|r|}
@@ -377,8 +716,6 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{center}
 \label{tab:influ3}
 \end{table}
-
-
 
 
 \begin{figure}[ht]
@@ -421,6 +758,7 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 
 \anexo
 \chapter{Scripts utilizados}
+\label{cap:scripts}
 
 \section{Execução dos experimentos}
 

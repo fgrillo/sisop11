@@ -1,0 +1,38 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.50 }
+
+\bibitem{Mathur07TNEFcsfp}
+\abntrefinfo{Mathur et al.}{MATHUR et al.}{2007}
+{MATHUR, A. et al. The new ext4 filesystem: current status and future plans.
+  In:  \emph{Proceedings of the Linux Symposium}. [s.n.], 2007. Dispon{\'\i}vel
+  em: $<$http://kernel.org/doc/ols/2007/ols2007v2-pages-21-34.pdf$>$.}
+
+\bibitem{Card94DISEf}
+\abntrefinfo{Card, Ts'o e Tweedie}{CARD; TS'O; TWEEDIE}{1994}
+{CARD, R.; TS'O, T.; TWEEDIE, S. Design and implementation of the second
+  extended filesystem. In:  \emph{Proceedings of the First Dutch International
+  Symposium on Linux}. [s.n.], 1994. Dispon{\'\i}vel em:
+  $<$http://e2fsprogs.sourceforge.net/ext2intro.html$>$.}
+
+\bibitem{Silberschatz08OSC}
+\abntrefinfo{Silberschatz, Galvin e Gagne}{SILBERSCHATZ; GALVIN; GAGNE}{2008}
+{SILBERSCHATZ, A.; GALVIN, P.~B.; GAGNE, G. \emph{Operating System Concepts}.
+  8th. ed. [S.l.]: Wiley Publishing, 2008.
+ISBN 0470128720.}
+
+\bibitem{sitereiser}
+\abntrefinfo{Buchholz}{BUCHHOLZ}{}
+{BUCHHOLZ, F. \emph{The structure of the Reiser file system}.
+, http://homes.cerias.purdue.edu/~florian/reiser/reiserfs.php {\'U}ltimo acesso
+  em 12/06/2011.}
+
+\bibitem{IOZone06IFB}
+\abntrefinfo{Iozone\ldots}{IOZONE\ldots}{2006}
+{IOZONE Filesystem Benchmark. 2006.
+Dispon{\'\i}vel em: $<$http://www.iozone.org/$>$.}
+
+\end{thebibliography}

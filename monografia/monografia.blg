@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: monografia.aux
+The style file: abnt-num.bst
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: monografia.bib
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
++---------------------------------------------------------+
+| Estilo bibliografico abnt-num.bst versao 1.50           |
+| Implementa a NBR6023, NBR10520 e NBR10523               |
+| Em caso de duvidas ou problemas com este estilo procure |
+| http://abntex.codigolivre.org.br                        |
++---------------------------------------------------------+
+You've used 5 entries,
+            6522 wiz_defined-function locations,
+            1193 strings with 10142 characters,
+and the built_in function-call counts, 4567 in all, are:
+= -- 525
+> -- 129
+< -- 1
++ -- 109
+- -- 38
+* -- 297
+:= -- 636
+add.period$ -- 21
+call.type$ -- 5
+change.case$ -- 56
+chr.to.int$ -- 8
+cite$ -- 5
+duplicate$ -- 167
+empty$ -- 314
+format.name$ -- 197
+if$ -- 1125
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 88
+newline$ -- 31
+num.names$ -- 16
+pop$ -- 152
+preamble$ -- 1
+purify$ -- 21
+quote$ -- 0
+skip$ -- 315
+stack$ -- 1
+substring$ -- 137
+swap$ -- 68
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 9
+warning$ -- 0
+while$ -- 24
+width$ -- 0
+write$ -- 71

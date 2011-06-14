@@ -380,6 +380,19 @@ Neste capítulo são especificados o modelo de avaliação que foi adotado, quais as
 
 \section{Variáveis de resposta, fatores e níveis}\label{sec:fatores}
 
+Para a escolha das variáveis de resposta foram escolhidas as operações mais comuns utilizados pelo sistemas operacionais que são escrita e leitura. Portanto, as variáveis de resposta escolhida foram:
+
+\begin{itemize}
+ \item Leitura
+ \item Escrita
+ \item Leitura aleatória
+ \item Escrita aleatória
+\end{itemize}
+
+Para a avaliação foi adotado o planejamento fatorial completo 2$^{4}$ na etapa 1 e fatorial completo 2$^{3}$ para as etapas 2 e 3 para manter a complexidade dos complexidade dos experimentos em um nível aceitável foram utilizados apenas 4 fatores que acredita-se que poderiam ter maior influência sobre os resultados dos experimentos e cada um deles com 2 níveis de variação.
+
+Para simplificar a execução dos experimentos e ainda assim comparar todos os sistemas uns com os outros, a avaliação foi dividida em 3 etapas. Na etapa 1 foram comparados os sistemas de arquivos Ext4 e o XFS. A Tabela \ref{tab:etapa1_niveis} mostra os fatores e níveis escolhidos para a etapa 1.
+
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{|l|l|l|}
@@ -391,9 +404,11 @@ C - Memória RAM & 1GB & 2GB \\ \hline
 D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{tabular}
 \caption{Fatores e níveis escolhidos para a Etapa 1.}
+\label{tab:etapa1_niveis}
 \end{center}
-\label{etapa1_niveis}
 \end{table}
+
+Na etapa 2 foram comparados os sistemas de arquivos Ext4 e ReiserFS e a Tabela \ref{tab:etapa2_niveis} mostra os fatores e níveis adotados para a etapa 2. Como foi dito anteriormente, o ReiserFS não permite a mundança do tamanho do bloco, este fator não foi considerado para as etapas 2 e 3 e o bloco ficou fixado em 4096 bytes para ambos os sistemas comparados nessas etapas.
 
 \begin{table}[htbp]
 \begin{center}
@@ -405,9 +420,11 @@ C - Memória RAM & 1GB & 2GB \\ \hline
 D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{tabular}
 \caption{Fatores e níveis escolhidos para a Etapa 2.}
+\label{tab:etapa2_niveis}
 \end{center}
-\label{etapa2_niveis}
 \end{table}
+
+Na etapa 3 foram comparados os sistemas XFS e ReiserFS. A Tabela \ref{tab:etapa3_niveis} mostra os fatores e níveis adotados para esta etapa.
 
 \begin{table}[htbp]
 \begin{center}
@@ -419,13 +436,17 @@ C - Memória RAM & 1GB & 2GB \\ \hline
 D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \end{tabular}
 \caption{Fatores e níveis escolhidos para a Etapa 3.}
+\label{tab:etapa3_niveis}
 \end{center}
-\label{etapa3_niveis}
 \end{table}
 
 
 
 \section{Experimentos}\label{sec:experimentos}
+
+Na etapa 1 da avaliação foram realizados 16 experimentos para cobrir todas as variações possíveis entre os 2 níves de cada um dos 4 fatores definidos anteriormente. Para as etapas 2 e 3 foram realizados 8 experimentos, novamente para cobrir todas as variações entre os 2 níveis e 3 fatores definidos anteriormente. Para cada experimento foram realizadas 10 repetições resultando em um total de 160 execuções na etapa 1, 80 execuções na etapa 2 e 80 execuções na etapa 3 em função de possuírem 1 fator a menos do que a etapa 1. 
+
+A tabela \ref{tab:etapa1_experimentos} mostra os níveis utilizados em cada um dos 16 experimentos realizados na etapa 1 e a Tabela \ref{tab:etapa2e3_experimentos} mostra os níveis utilizados em cada um dos 8 experimentos tanto da etapa 2 quanto da etapa 3. A definição dos fatores A, B, C e D podem ser encontradas nas Tabelas \ref{tab:etapa1_niveis}, \ref{tab:etapa2_niveis} e \ref{tab:etapa3_niveis}
 
 \begin{table}[htbp]
 \begin{center}
@@ -450,8 +471,8 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \textbf{16} & -1 & -1 & -1 & -1 \\ \hline
 \end{tabular}
 \caption{Níveis utilizados em cada um dos experimentos para a Etapa 1}
+\label{tab:etapa1_experimentos}
 \end{center}
-\label{etapa1_experimentos}
 \end{table}
 
 \begin{table}[htbp]
@@ -469,11 +490,11 @@ D - Tamanho do arquivo & 64KB & 64MB \\ \hline
 \textbf{8} & -1 & -1 & -1 \\ \hline
 \end{tabular}
 \caption{Níveis utilizados em cada um dos experimentos para as Etapa 2 e 3}
+\label{tab:etapa2e3_experimentos}
 \end{center}
-\label{etapa2e3_experimentos}
 \end{table}
 
-
+XXX EXPLICAR COMO FOI A EXECUÇÃO XXX
 
 \chapter{Resultados Obtidos}\label{cap:resultados}
 
@@ -536,8 +557,8 @@ Este capítulo apresenta os resultados obtidos nos experimentos nas Etapas 1, 2 e
 \textbf{iABCD} & 0.00 & 0.09 & 0.03 & 0.01 \\ \hline
 \end{tabular}
 \caption{Tabela com os valores calculados de influência dos fatores para a Etapa 1 da avaliação de desempenho separados para o tipo de operação.}
-\end{center}
 \label{tab:influ1}
+\end{center}
 \end{table}
 
 

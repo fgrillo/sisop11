@@ -1,18 +1,11 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.1)  13 JUN 2011 00:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.11)  13 JUN 2011 22:27
 entering extended mode
- Source specials enabled.
  %&-line parsing enabled.
 **monografia.tex
 (./monografia.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
-ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
-9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
-skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
-orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
-, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
-rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
+yphenation, loaded.
 (./abnt.cls (./cvs-id.def)
 Document Class: abnt 2004/11/02 v1.27.2.1 Classe abnt (NBR6024, NBR6027, NBR602
 8, NBR14724)
@@ -152,7 +145,7 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
 )
-(/var/lib/texmf/tex/generic/babel/babel.sty
+(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 
 (/usr/share/texmf-texlive/tex/generic/babel/portuges.ldf
@@ -163,10 +156,15 @@ File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count100
 \U@D=\dimen115
 )
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Portuguese'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@portuges = a dialect from \language0
 \l@brazil = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
-))
-(/usr/share/texmf-texlive/tex/latex/fancyvrb/fancyvrb.sty
+)) (/usr/share/texmf-texlive/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
@@ -363,7 +361,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <12> not available
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \hbox (badness 2334) in paragraph at lines 47--47
-[]\T1/ppl/m/n/12 Monografia apre-sen-tada para con-clu-são
+[]\T1/ppl/m/n/12 Monografia ap-re-sen-tada para con-clusão
  []
 
 [1]
@@ -497,8 +495,22 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 \openout4 = `monografia.toc'.
 
  [5] (./monografia.lof
+Overfull \hbox (7.58063pt too wide) in paragraph at lines 6--6
+ [][] []\T1/ppl/m/n/12 Gráfico com-para-ndo os ex-per-i-men-tos da Etapa 1 na o
+p-er-ação de Leitura 
+ []
 
-LaTeX Warning: Citation `Mathur07TNEFcsfp' on page  undefined on input line 2.
+
+Overfull \hbox (7.58063pt too wide) in paragraph at lines 15--15
+ [][] []\T1/ppl/m/n/12 Gráfico com-para-ndo os ex-per-i-men-tos da Etapa 2 na o
+p-er-ação de Leitura 
+ []
+
+
+Overfull \hbox (7.58063pt too wide) in paragraph at lines 24--24
+ [][] []\T1/ppl/m/n/12 Gráfico com-para-ndo os ex-per-i-men-tos da Etapa 3 na o
+p-er-ação de Leitura 
+ []
 
 [6
 
@@ -509,20 +521,20 @@ LaTeX Warning: Citation `Mathur07TNEFcsfp' on page  undefined on input line 2.
 
  [7] (./monografia.lot
 Overfull \hbox (0.54884pt too wide) in paragraph at lines 7--7
- [][][] []\T1/ppl/m/n/12 Tabela com os va-lo-res cal-cu-la-dos de in-fluên-cia 
-dos fa-to-res para a Etapa 
+ [][] []\T1/ppl/m/n/12 Tabela com os val-ores cal-cu-la-dos de in-fluên-cia dos
+ fa-tores para a Etapa 
  []
 
 
 Overfull \hbox (0.54884pt too wide) in paragraph at lines 8--8
- [][][] []\T1/ppl/m/n/12 Tabela com os va-lo-res cal-cu-la-dos de in-fluên-cia 
-dos fa-to-res para a Etapa 
+ [][] []\T1/ppl/m/n/12 Tabela com os val-ores cal-cu-la-dos de in-fluên-cia dos
+ fa-tores para a Etapa 
  []
 
 
 Overfull \hbox (0.54884pt too wide) in paragraph at lines 9--9
- [][][] []\T1/ppl/m/n/12 Tabela com os va-lo-res cal-cu-la-dos de in-fluên-cia 
-dos fa-to-res para a Etapa 
+ [][] []\T1/ppl/m/n/12 Tabela com os val-ores cal-cu-la-dos de in-fluên-cia dos
+ fa-tores para a Etapa 
  []
 
 )
@@ -537,214 +549,198 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 80.
 [9
 
-]
+] [10]
 Cap\'{\i }tulo 2.
-
-LaTeX Warning: Citation `Card94DISEf' on page 10 undefined on input line 132.
-
-
-LaTeX Warning: Citation `Silberschatz08OSC' on page 10 undefined on input line 
-134.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 136.
+(Font)              <7> on input line 173.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 136.
+(Font)              <5> on input line 173.
+[11
 
-LaTeX Warning: Citation `Card94DISEf' on page 10 undefined on input line 146.
-
-
-Overfull \hbox (5.16736pt too wide) in paragraph at lines 142--149
-[]\T1/ppl/m/n/12 Entretanto, al-guns pro-ble-mas ainda es-ta-vam pre-sen-tes ne
-ssa im-ple-men-ta-ção. Por exem-
- []
-
-[10
-
-]
-
-LaTeX Warning: Citation `Card94DISEf' on page 11 undefined on input line 154.
-
-
-LaTeX Warning: Citation `Mathur07TNEFcsfp' on page 11 undefined on input line 1
-68.
-
-
-LaTeX Warning: Citation `Mathur07TNEFcsfp' on page 11 undefined on input line 1
-77.
-
-
-LaTeX Warning: Citation `Mathur07TNEFcsfp' on page 11 undefined on input line 1
-93.
-
-[11]
-Overfull \hbox (11.17891pt too wide) in paragraph at lines 229--232
-[][]\T1/ppl/m/n/12 Melhorias na forma como a in-te-gri-dade do sis-tema de ar-q
-ui-vos é ve-ri-fi-cada (usando
- []
-
-[12] <images/ext4_extents.png, id=48, 621.32124pt x 591.20876pt>
+] [12] [13] <images/ext4_extents.png, id=51, 621.32124pt x 591.20876pt>
 File: images/ext4_extents.png Graphic file (type png)
 
-<use images/ext4_extents.png>
-
-LaTeX Warning: Citation `Mathur07TNEFcsfp' on page 13 undefined on input line 2
-46.
-
-[13 <./images/ext4_extents.png (PNG copy)>]
-
-LaTeX Warning: Citation `sitereiser' on page 14 undefined on input line 261.
-
-
-Overfull \hbox (2.11662pt too wide) in paragraph at lines 261--262
-[][]\T1/ppl/m/n/12 Este sis-tema uti-liza ár-vo-res B* para me-lho-rar o de-sem
--pe-nho em ope-ra-ções de busca.
+<use images/ext4_extents.png> [14 <./images/ext4_extents.png (PNG copy)>]
+Overfull \hbox (2.11662pt too wide) in paragraph at lines 298--299
+[]\T1/ppl/m/n/12 Este sis-tema uti-liza ár-vores B* para mel-ho-rar o de-sem-pe
+nho em op-er-ações de busca.
  []
 
-<images/stree.png, id=52, 932.48375pt x 545.03625pt>
+<images/stree.png, id=55, 932.48375pt x 545.03625pt>
 File: images/stree.png Graphic file (type png)
  <use images/stree.png>
-[14] [15 <./images/stree.png (PNG copy)>]
+[15] [16 <./images/stree.png (PNG copy)>]
 Cap\'{\i }tulo 3.
-LaTeX Font Info:    Try loading font information for TS1+ppl on input line 293.
+LaTeX Font Info:    Try loading font information for TS1+ppl on input line 336.
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [16
-
-]
-Cap\'{\i }tulo 4.
-[17
+) [17
 
 ] [18]
+Cap\'{\i }tulo 4.
+[19
+
+] [20] [21]
 Cap\'{\i }tulo 5.
-<images/ext4_xfs/ext4_xfs_write.png, id=69, 642.4pt x 481.8pt>
+<images/ext4_xfs/ext4_xfs_write.png, id=78, 642.4pt x 481.8pt>
 File: images/ext4_xfs/ext4_xfs_write.png Graphic file (type png)
 
 <use images/ext4_xfs/ext4_xfs_write.png>
-<images/ext4_xfs/ext4_xfs_read.png, id=70, 642.4pt x 481.8pt>
+<images/ext4_xfs/ext4_xfs_read.png, id=79, 642.4pt x 481.8pt>
 File: images/ext4_xfs/ext4_xfs_read.png Graphic file (type png)
 
 <use images/ext4_xfs/ext4_xfs_read.png>
-<images/ext4_xfs/ext4_xfs_randread.png, id=71, 642.4pt x 481.8pt>
+<images/ext4_xfs/ext4_xfs_randread.png, id=80, 642.4pt x 481.8pt>
 File: images/ext4_xfs/ext4_xfs_randread.png Graphic file (type png)
 
 <use images/ext4_xfs/ext4_xfs_randread.png>
-<images/ext4_xfs/ext4_xfs_randwrite.png, id=72, 642.4pt x 481.8pt>
+<images/ext4_xfs/ext4_xfs_randwrite.png, id=81, 642.4pt x 481.8pt>
 File: images/ext4_xfs/ext4_xfs_randwrite.png Graphic file (type png)
 
 <use images/ext4_xfs/ext4_xfs_randwrite.png>
-<images/influencias/etapa1_write.png, id=73, 260.00586pt x 234.22446pt>
+<images/influencias/etapa1_write.png, id=82, 260.00586pt x 234.22446pt>
 File: images/influencias/etapa1_write.png Graphic file (type png)
 
 <use images/influencias/etapa1_write.png>
-<images/influencias/etapa1_read.png, id=74, 271.63551pt x 238.57808pt>
+<images/influencias/etapa1_read.png, id=83, 271.63551pt x 238.57808pt>
 File: images/influencias/etapa1_read.png Graphic file (type png)
 
 <use images/influencias/etapa1_read.png>
-<images/influencias/etapa1_randread.png, id=75, 273.29689pt x 242.06096pt>
+<images/influencias/etapa1_randread.png, id=84, 273.29689pt x 242.06096pt>
 File: images/influencias/etapa1_randread.png Graphic file (type png)
 
 <use images/influencias/etapa1_randread.png>
-<images/influencias/etapa1_randwrite.png, id=76, 261.66724pt x 235.9659pt>
+<images/influencias/etapa1_randwrite.png, id=85, 261.66724pt x 235.9659pt>
 File: images/influencias/etapa1_randwrite.png Graphic file (type png)
 
-<use images/influencias/etapa1_randwrite.png> [19
+<use images/influencias/etapa1_randwrite.png> [22
 
- <./images/ext4_xfs/ext4_xfs_write.png (PNG copy)>] [20 <./images/ext4_xfs/ext4
+ <./images/ext4_xfs/ext4_xfs_write.png (PNG copy)>] [23 <./images/ext4_xfs/ext4
 _xfs_read.png (PNG copy)> <./images/ext4_xfs/ext4_xfs_randread.png (PNG copy)>]
- [21 <./images/ext4_xfs/ext4_xfs_randwrite.png (PNG copy)>] [22 <./images/influ
+ [24 <./images/ext4_xfs/ext4_xfs_randwrite.png (PNG copy)>] [25 <./images/influ
 encias/etapa1_write.png (PNG copy)> <./images/influencias/etapa1_read.png (PNG 
 copy)> <./images/influencias/etapa1_randread.png (PNG copy)> <./images/influenc
-ias/etapa1_randwrite.png (PNG copy)>] <images/ext4_reiser/ext4_reiserfs_write.p
-ng, id=93, 642.4pt x 481.8pt>
+ias/etapa1_randwrite.png (PNG copy)>]
+<images/ext4_reiser/ext4_reiserfs_write.png, id=103, 642.4pt x 481.8pt>
 File: images/ext4_reiser/ext4_reiserfs_write.png Graphic file (type png)
 
 <use images/ext4_reiser/ext4_reiserfs_write.png>
-<images/ext4_reiser/ext4_reiserfs_read.png, id=94, 642.4pt x 481.8pt>
+<images/ext4_reiser/ext4_reiserfs_read.png, id=104, 642.4pt x 481.8pt>
 File: images/ext4_reiser/ext4_reiserfs_read.png Graphic file (type png)
 
 <use images/ext4_reiser/ext4_reiserfs_read.png>
-<images/ext4_reiser/ext4_reiserfs_randread.png, id=95, 642.4pt x 481.8pt>
+<images/ext4_reiser/ext4_reiserfs_randread.png, id=105, 642.4pt x 481.8pt>
 File: images/ext4_reiser/ext4_reiserfs_randread.png Graphic file (type png)
 
 <use images/ext4_reiser/ext4_reiserfs_randread.png>
-<images/ext4_reiser/ext4_reiserfs_randwrite.png, id=96, 642.4pt x 481.8pt>
+<images/ext4_reiser/ext4_reiserfs_randwrite.png, id=106, 642.4pt x 481.8pt>
 File: images/ext4_reiser/ext4_reiserfs_randwrite.png Graphic file (type png)
 
 <use images/ext4_reiser/ext4_reiserfs_randwrite.png>
-<images/influencias/etapa2_write.png, id=97, 275.78897pt x 244.67313pt>
+<images/influencias/etapa2_write.png, id=107, 275.78897pt x 244.67313pt>
 File: images/influencias/etapa2_write.png Graphic file (type png)
 
 <use images/influencias/etapa2_write.png>
-<images/influencias/etapa2_read.png, id=98, 266.65138pt x 244.67313pt>
+<images/influencias/etapa2_read.png, id=108, 266.65138pt x 244.67313pt>
 File: images/influencias/etapa2_read.png Graphic file (type png)
 
 <use images/influencias/etapa2_read.png>
-<images/influencias/etapa2_randread.png, id=99, 267.48207pt x 240.31952pt>
+<images/influencias/etapa2_randread.png, id=109, 267.48207pt x 240.31952pt>
 File: images/influencias/etapa2_randread.png Graphic file (type png)
 
 <use images/influencias/etapa2_randread.png>
-<images/influencias/etapa2_randwrite.png, id=100, 273.29689pt x 241.19025pt>
+<images/influencias/etapa2_randwrite.png, id=110, 273.29689pt x 241.19025pt>
 File: images/influencias/etapa2_randwrite.png Graphic file (type png)
 
-<use images/influencias/etapa2_randwrite.png> [23
+<use images/influencias/etapa2_randwrite.png> [26
 
- <./images/ext4_reiser/ext4_reiserfs_write.png (PNG copy)>] [24 <./images/ext4_
+ <./images/ext4_reiser/ext4_reiserfs_write.png (PNG copy)>] [27 <./images/ext4_
 reiser/ext4_reiserfs_read.png (PNG copy)> <./images/ext4_reiser/ext4_reiserfs_r
 andread.png (PNG copy)>]
-[25 <./images/ext4_reiser/ext4_reiserfs_randwrite.png (PNG copy)>] [26 <./image
+[28 <./images/ext4_reiser/ext4_reiserfs_randwrite.png (PNG copy)>] [29 <./image
 s/influencias/etapa2_write.png (PNG copy)> <./images/influencias/etapa2_read.pn
 g (PNG copy)> <./images/influencias/etapa2_randread.png (PNG copy)> <./images/i
 nfluencias/etapa2_randwrite.png (PNG copy)>]
-<images/xfs_reiser/xfs_reiserfs_write.png, id=118, 642.4pt x 481.8pt>
+<images/xfs_reiser/xfs_reiserfs_write.png, id=127, 642.4pt x 481.8pt>
 File: images/xfs_reiser/xfs_reiserfs_write.png Graphic file (type png)
 
 <use images/xfs_reiser/xfs_reiserfs_write.png>
-<images/xfs_reiser/xfs_reiserfs_read.png, id=119, 642.4pt x 481.8pt>
+<images/xfs_reiser/xfs_reiserfs_read.png, id=128, 642.4pt x 481.8pt>
 File: images/xfs_reiser/xfs_reiserfs_read.png Graphic file (type png)
 
 <use images/xfs_reiser/xfs_reiserfs_read.png>
-<images/xfs_reiser/xfs_reiserfs_randread.png, id=120, 642.4pt x 481.8pt>
+<images/xfs_reiser/xfs_reiserfs_randread.png, id=129, 642.4pt x 481.8pt>
 File: images/xfs_reiser/xfs_reiserfs_randread.png Graphic file (type png)
 
 <use images/xfs_reiser/xfs_reiserfs_randread.png>
-<images/xfs_reiser/xfs_reiserfs_randwrite.png, id=121, 642.4pt x 481.8pt>
+<images/xfs_reiser/xfs_reiserfs_randwrite.png, id=130, 642.4pt x 481.8pt>
 File: images/xfs_reiser/xfs_reiserfs_randwrite.png Graphic file (type png)
 
 <use images/xfs_reiser/xfs_reiserfs_randwrite.png>
-<images/influencias/etapa3_write.png, id=122, 273.29689pt x 247.2853pt>
+<images/influencias/etapa3_write.png, id=131, 273.29689pt x 247.2853pt>
 File: images/influencias/etapa3_write.png Graphic file (type png)
 
 <use images/influencias/etapa3_write.png>
-<images/influencias/etapa3_read.png, id=123, 273.29689pt x 242.93169pt>
+<images/influencias/etapa3_read.png, id=132, 273.29689pt x 242.93169pt>
 File: images/influencias/etapa3_read.png Graphic file (type png)
 
 <use images/influencias/etapa3_read.png>
-<images/influencias/etapa3_randread.png, id=124, 276.61966pt x 242.06096pt>
+<images/influencias/etapa3_randread.png, id=133, 276.61966pt x 242.06096pt>
 File: images/influencias/etapa3_randread.png Graphic file (type png)
 
 <use images/influencias/etapa3_randread.png>
-<images/influencias/etapa3_randwrite.png, id=125, 271.63551pt x 243.80241pt>
+<images/influencias/etapa3_randwrite.png, id=134, 271.63551pt x 243.80241pt>
 File: images/influencias/etapa3_randwrite.png Graphic file (type png)
 
-<use images/influencias/etapa3_randwrite.png> [27
+<use images/influencias/etapa3_randwrite.png> [30
 
- <./images/xfs_reiser/xfs_reiserfs_write.png (PNG copy)>] [28 <./images/xfs_rei
+ <./images/xfs_reiser/xfs_reiserfs_write.png (PNG copy)>] [31 <./images/xfs_rei
 ser/xfs_reiserfs_read.png (PNG copy)> <./images/xfs_reiser/xfs_reiserfs_randrea
-d.png (PNG copy)>] [29 <./images/xfs_reiser/xfs_reiserfs_randwrite.png (PNG cop
-y)>] [30 <./images/influencias/etapa3_write.png (PNG copy)> <./images/influenci
+d.png (PNG copy)>] [32 <./images/xfs_reiser/xfs_reiserfs_randwrite.png (PNG cop
+y)>] [33 <./images/influencias/etapa3_write.png (PNG copy)> <./images/influenci
 as/etapa3_read.png (PNG copy)> <./images/influencias/etapa3_randread.png (PNG c
 opy)> <./images/influencias/etapa3_randwrite.png (PNG copy)>]
 Cap\'{\i }tulo 6.
-(./monografia.bbl) [31
+(./monografia.bbl [34
 
 
 ]
+Underfull \hbox (badness 2809) in paragraph at lines 10--13
+[]\T1/ppl/m/n/12 MATHUR, A. et al. The new ext4 filesys-tem: cur-rent sta-tus a
+nd fu-ture
+ []
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 10--13
+\T1/ppl/m/n/12 plans. In: \T1/ppl/m/it/12 Pro-ceed-ings of the Linux Sym-po-siu
+m\T1/ppl/m/n/12 . [s.n.], 2007. Disponível em:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--32
+[]\T1/ppl/m/n/12 BUCHHOLZ, F. \T1/ppl/m/it/12 The struc-ture of the Reiser file
+ sys-tem\T1/ppl/m/n/12 . ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--32
+\T1/ppl/m/n/12 http://homes.cerias.purdue.edu/ flo-ri-an/reis-er/reis-erfs.php 
+Úl-timo acesso
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
+[]\T1/ppl/m/n/12 IOZONE Filesys-tem Bench-mark. 2006. Disponível em:
+ []
+
+) [35
+
+]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 669.
+(Font)              <20.74> on input line 762.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 669.
+(Font)              <14.4> on input line 762.
 
 Anexo A.
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
@@ -758,140 +754,137 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 3.
  (/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-[32
+[36
 
-]) (./include/extract.sh) [33]
+]) (./include/extract.sh) [37]
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2004/09/05 1.3 listings language file
 ) (./include/plot.gp
-[34] [35]) [36]
+[38] [39]) [40]
 Anexo B.
-<images/dados/ext4_1.png, id=165, 600.58862pt x 240.31952pt>
+<images/dados/ext4_1.png, id=178, 600.58862pt x 240.31952pt>
 File: images/dados/ext4_1.png Graphic file (type png)
 
 <use images/dados/ext4_1.png>
-<images/dados/ext4_2.png, id=166, 600.58862pt x 237.70735pt>
+<images/dados/ext4_2.png, id=179, 600.58862pt x 237.70735pt>
 File: images/dados/ext4_2.png Graphic file (type png)
 
 <use images/dados/ext4_2.png>
-<images/dados/ext4_3.png, id=167, 598.92725pt x 237.70735pt>
+<images/dados/ext4_3.png, id=180, 598.92725pt x 237.70735pt>
 File: images/dados/ext4_3.png Graphic file (type png)
 
 <use images/dados/ext4_3.png>
-<images/dados/ext4_4.png, id=168, 598.92725pt x 237.70735pt>
+<images/dados/ext4_4.png, id=181, 598.92725pt x 237.70735pt>
 File: images/dados/ext4_4.png Graphic file (type png)
 
 <use images/dados/ext4_4.png>
-<images/dados/ext4_5.png, id=169, 597.26587pt x 235.09518pt>
+<images/dados/ext4_5.png, id=182, 597.26587pt x 235.09518pt>
 File: images/dados/ext4_5.png Graphic file (type png)
 
 <use images/dados/ext4_5.png>
-<images/dados/ext4_6.png, id=170, 596.43517pt x 232.48302pt>
+<images/dados/ext4_6.png, id=183, 596.43517pt x 232.48302pt>
 File: images/dados/ext4_6.png Graphic file (type png)
 
 <use images/dados/ext4_6.png>
-<images/dados/ext4_7.png, id=171, 594.77379pt x 232.48302pt>
+<images/dados/ext4_7.png, id=184, 594.77379pt x 232.48302pt>
 File: images/dados/ext4_7.png Graphic file (type png)
 
 <use images/dados/ext4_7.png>
-<images/dados/ext4_8.png, id=172, 596.43517pt x 233.35373pt>
+<images/dados/ext4_8.png, id=185, 596.43517pt x 233.35373pt>
 File: images/dados/ext4_8.png Graphic file (type png)
 
-<use images/dados/ext4_8.png> [37
+<use images/dados/ext4_8.png> [41
 
  <./images/dados/ext4_1.png (PNG copy)> <./images/dados/ext4_2.png (PNG copy)>]
- [38 <./images/dados/ext4_3.png (PNG copy)> <./images/dados/ext4_4.png (PNG cop
+ [42 <./images/dados/ext4_3.png (PNG copy)> <./images/dados/ext4_4.png (PNG cop
 y)> <./images/dados/ext4_5.png (PNG copy)>]
-[39 <./images/dados/ext4_6.png (PNG copy)> <./images/dados/ext4_7.png (PNG copy
+[43 <./images/dados/ext4_6.png (PNG copy)> <./images/dados/ext4_7.png (PNG copy
 )> <./images/dados/ext4_8.png (PNG copy)>]
-<images/dados/xfs_1.png, id=182, 597.26587pt x 234.22446pt>
+<images/dados/xfs_1.png, id=196, 597.26587pt x 234.22446pt>
 File: images/dados/xfs_1.png Graphic file (type png)
 
 <use images/dados/xfs_1.png>
-<images/dados/xfs_2.png, id=183, 598.09656pt x 234.22446pt>
+<images/dados/xfs_2.png, id=197, 598.09656pt x 234.22446pt>
 File: images/dados/xfs_2.png Graphic file (type png)
 
 <use images/dados/xfs_2.png>
-<images/dados/xfs_3.png, id=184, 597.26587pt x 234.22446pt>
+<images/dados/xfs_3.png, id=198, 597.26587pt x 234.22446pt>
 File: images/dados/xfs_3.png Graphic file (type png)
 
 <use images/dados/xfs_3.png>
-<images/dados/xfs_4.png, id=185, 597.26587pt x 233.35373pt>
+<images/dados/xfs_4.png, id=199, 597.26587pt x 233.35373pt>
 File: images/dados/xfs_4.png Graphic file (type png)
 
 <use images/dados/xfs_4.png>
-<images/dados/xfs_5.png, id=186, 597.26587pt x 233.35373pt>
+<images/dados/xfs_5.png, id=200, 597.26587pt x 233.35373pt>
 File: images/dados/xfs_5.png Graphic file (type png)
 
 <use images/dados/xfs_5.png>
-<images/dados/xfs_6.png, id=187, 594.77379pt x 230.74156pt>
+<images/dados/xfs_6.png, id=201, 594.77379pt x 230.74156pt>
 File: images/dados/xfs_6.png Graphic file (type png)
 
 <use images/dados/xfs_6.png>
-<images/dados/xfs_7.png, id=188, 597.26587pt x 235.09518pt>
+<images/dados/xfs_7.png, id=202, 597.26587pt x 235.09518pt>
 File: images/dados/xfs_7.png Graphic file (type png)
 
 <use images/dados/xfs_7.png>
-<images/dados/xfs_8.png, id=189, 597.26587pt x 234.22446pt>
+<images/dados/xfs_8.png, id=203, 597.26587pt x 234.22446pt>
 File: images/dados/xfs_8.png Graphic file (type png)
 
-<use images/dados/xfs_8.png> [40
+<use images/dados/xfs_8.png> [44
 
  <./images/dados/xfs_1.png (PNG copy)> <./images/dados/xfs_2.png (PNG copy)> <.
-/images/dados/xfs_3.png (PNG copy)>] [41 <./images/dados/xfs_4.png (PNG copy)> 
+/images/dados/xfs_3.png (PNG copy)>] [45 <./images/dados/xfs_4.png (PNG copy)> 
 <./images/dados/xfs_5.png (PNG copy)> <./images/dados/xfs_6.png (PNG copy)>] [4
-2 <./images/dados/xfs_7.png (PNG copy)> <./images/dados/xfs_8.png (PNG copy)>]
-<images/dados/reiser_1.png, id=200, 601.41931pt x 233.35373pt>
+6 <./images/dados/xfs_7.png (PNG copy)> <./images/dados/xfs_8.png (PNG copy)>]
+<images/dados/reiser_1.png, id=213, 601.41931pt x 233.35373pt>
 File: images/dados/reiser_1.png Graphic file (type png)
 
 <use images/dados/reiser_1.png>
-<images/dados/reiser_2.png, id=201, 603.08069pt x 233.35373pt>
+<images/dados/reiser_2.png, id=214, 603.08069pt x 233.35373pt>
 File: images/dados/reiser_2.png Graphic file (type png)
 
 <use images/dados/reiser_2.png>
-<images/dados/reiser_3.png, id=202, 601.41931pt x 233.35373pt>
+<images/dados/reiser_3.png, id=215, 601.41931pt x 233.35373pt>
 File: images/dados/reiser_3.png Graphic file (type png)
 
 <use images/dados/reiser_3.png>
-<images/dados/reiser_4.png, id=203, 603.08069pt x 232.48302pt>
+<images/dados/reiser_4.png, id=216, 603.08069pt x 232.48302pt>
 File: images/dados/reiser_4.png Graphic file (type png)
 
-<use images/dados/reiser_4.png> [43
+<use images/dados/reiser_4.png> [47
 
  <./images/dados/reiser_1.png (PNG copy)> <./images/dados/reiser_2.png (PNG cop
-y)> <./images/dados/reiser_3.png (PNG copy)>] [44 <./images/dados/reiser_4.png 
+y)> <./images/dados/reiser_3.png (PNG copy)>] [48 <./images/dados/reiser_4.png 
 (PNG copy)>]
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-(./monografia.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+(./monografia.aux) ) 
 Here is how much of TeX's memory you used:
- 5603 strings out of 493848
- 78294 string characters out of 1152824
- 522088 words of memory out of 3000000
- 8709 multiletter control sequences out of 15000+50000
+ 5607 strings out of 495061
+ 78365 string characters out of 1182621
+ 521083 words of memory out of 3000000
+ 8615 multiletter control sequences out of 15000+50000
  42025 words of font info for 80 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
+ 28 hyphenation exceptions out of 8191
  35i,11n,49p,552b,1827s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb
-></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texm
-f-texlive/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texmf-texlive/fonts/
-type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatin
-o/uplri8a.pfb>
-Output written on monografia.pdf (45 pages, 1444251 bytes).
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr
+/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucr
+r8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/sha
+re/texmf-texlive/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texmf-texlive
+/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
+palatino/uplri8a.pfb>
+Output written on monografia.pdf (49 pages, 1462194 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
+ 256 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  231 words of extra memory for PDF output out of 10000 (max. 10000000)
 
