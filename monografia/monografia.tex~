@@ -650,30 +650,43 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 
 \begin{table}[htbp]
 \begin{center}
-\begin{tabular}{|l|r|r|r|r|}
+\begin{tabular}{|r|r|r|r|r|}
 \hline
-\multicolumn{1}{|l|}{\textbf{Fator(es)}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
-\textbf{iA} & 6.00 & 0.44 & 28.97 & 1.15 \\ \hline
-\textbf{iB} & 77.29 & 1.82 & 0.02 & 0.29 \\ \hline
-\textbf{iC} & 0.01 & 0.11 & 26.29 & 68.52 \\ \hline
-\textbf{iD} & 11.27 & 64.16 & 35.92 & 28.06 \\ \hline
-\textbf{iAB} & 1.94 & 4.86 & 0.50 & 0.11 \\ \hline
-\textbf{iAC} & 0.11 & 10.86 & 7.35 & 0.16 \\ \hline
-\textbf{iAD} & 0.19 & 0.13 & 0.00 & 0.45 \\ \hline
-\textbf{iBC} & 0.00 & 3.03 & 0.09 & 0.14 \\ \hline
-\textbf{iBD} & 2.74 & 5.25 & 0.15 & 0.05 \\ \hline
-\textbf{iCD} & 0.01 & 0.06 & 0.14 & 0.88 \\ \hline
-\textbf{iABC} & 0.25 & 2.04 & 0.03 & 0.01 \\ \hline
-\textbf{iABD} & 0.06 & 5.05 & 0.23 & 0.11 \\ \hline
-\textbf{iACD} & 0.12 & 2.07 & 0.11 & 0.05 \\ \hline
-\textbf{iBCD} & 0.01 & 0.04 & 0.15 & 0.01 \\ \hline
-\textbf{iABCD} & 0.00 & 0.09 & 0.03 & 0.01 \\ \hline
+\multicolumn{1}{|l|}{\textbf{Fator}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
+\textbf{iA} & 1.32 & 24.59 & 32.63 & 2.99 \\ \hline
+\textbf{iB} & 78.78 & 0.16 & 0.00 & 0.08 \\ \hline
+\textbf{iC} & 3.27 & 16.64 & 2.29 & 4.49 \\ \hline
+\textbf{iD} & 10.12 & 50.71 & 62.44 & 90.90 \\ \hline
+\textbf{iAB} & 1.44 & 0.14 & 0.37 & 0.23 \\ \hline
+\textbf{iAC} & 1.03 & 2.55 & 0.11 & 0.20 \\ \hline
+\textbf{iAD} & 0.29 & 0.40 & 1.44 & 0.03 \\ \hline
+\textbf{iBC} & 0.12 & 0.37 & 0.02 & 0.01 \\ \hline
+\textbf{iBD} & 3.13 & 1.78 & 0.01 & 0.04 \\ \hline
+\textbf{iCD} & 0.10 & 0.56 & 0.20 & 0.23 \\ \hline
+\textbf{iABC} & 0.02 & 0.71 & 0.23 & 0.57 \\ \hline
+\textbf{iABD} & 0.00 & 0.04 & 0.14 & 0.04 \\ \hline
+\textbf{iACD} & 0.03 & 0.32 & 0.00 & 0.01 \\ \hline
+\textbf{iBCD} & 0.34 & 0.39 & 0.01 & 0.01 \\ \hline
+\textbf{iABCD} & 0.01 & 0.63 & 0.11 & 0.16 \\ \hline
 \end{tabular}
-\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 1 da avaliação de desempenho separados para o tipo de operação.}
-\label{tab:influ1}
 \end{center}
+\label{tab:influ1}
+\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 1 da avaliação de desempenho separados para o tipo de operação.}
 \end{table}
 
+Nos gráficos gerados a partir dessa tabela (vide Figura
+\ref{fig:etapa1_influs}), é possível notar que o tamanho de blocos é um fator
+que possui grande influência quando comparamos o desempenho de Ext4 e XFS
+para a operação de escrita. Esse fator faz com que o desempenho ambos os
+sistemas de arquivos seja visivelmente degradado quando blocos pequenos são
+utilizados. Também podemos notar que o tamanho de arquivos é um fator de grande
+influência quando comparamos Ext4 e XFS para as operações de leitura, leitura
+randômica e escrita randômica. Arquivos maiores (64 MB) degradaram o desempenho
+de ambos os sistemas de arquivos. Por fim, a quantidade de memória disponível é
+também um fator de grande importância para operações de leitura randômica e
+escrita randômica. Nesse caso, com o aumento da memória disponível há uma
+degradação no desempenho de ambos os sistemas de arquivos, onde essa degradação
+é mais visível para o Ext4.
 
 \begin{figure}[ht]
 \centering
@@ -699,7 +712,22 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 
 \clearpage
 
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+
 \section{Etapa 2: comparação entre EXT4 e ReiserFS}\label{sec:etapa2}
+
+Na segunda etapa do trabalho os sistemas de arquivos Ext4 e ReiserFS foram
+analisados em conjunto, a partir dos dados de experimentos de análise de
+desempenho realizados separadamente, conforme descrito no
+Capítulo \ref{cap:planejamento}. Vale ressaltar que o ReiserFS não disponibiliza
+opção de utilização de blocos de tamanho de 1 KB. Portanto, o Fator B, conforme
+apresentado na Tabela \ref{tab:etapa2_niveis}, não foi utilizado.
+
+Como pode ser observado na Figura \ref{fig:barra2_write}, o sistema de arquivos
+Ext4 possui melhor desempenho que o ReiserFS para todos os experimentos
+realizados com a operação de escrita.
 
 \begin{figure} [ht]
 \begin{center}
@@ -709,6 +737,13 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+Na Figura \ref{fig:barra2_read} --- que representa experimentos realizados para
+a operação de leitura --- o ReiserFS apresentou em geral um melhor desempenho que
+o Ext4, à parte o experimento 2, onde o segundo obteve um melhor desempenho.
+Nesse caso, a configuração utilizada foi de 1 GB de memória e arquivos de 64
+MB. Portanto, torna-se visível a degradação de desempenho do ReiserFS ao lidar
+com arquivos de grande tamanho.
+
 \begin{figure} [ht]
 \begin{center}
 \includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_read.png}
@@ -716,6 +751,14 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \label{fig:barra2_read}
 \end{center}
 \end{figure}
+
+Para a operação de leitura aleatória --- representada na  Figura
+\ref{fig:barra2_randread} --- os resultados não são conclusivos de um modo
+geral: o ReiserFS tem melhor desempenho para arquivos menores (64 KB) e memória
+de 1 GB, enquanto para uma mesma configuração com arquivos maiores (64 MB) o
+Ext4 o supera. Quando há mais memória disponível --- fator importante para
+\emph{caching} --- não se pode concluir sobre qual é o sistema de arquivos mais
+eficiente, pois os intervalos de confiança se sobrepõem.
 
 \begin{figure} [ht]
 \begin{center}
@@ -725,6 +768,12 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+Por fim, para a operação de escrita randômica (vide Figura
+\ref{fig:barra2_randwrite}), o ReiserFS obteve um melhor desempenho quando a
+configuração de fatores envolvia mais quantidade de memória (2 GB). Por outro
+lado, quando havia menor quantidade de memória (1 GB), nada se pode afirmar
+sobre o desempenho de ambos, pois os intervalos de confiança se sobrepõem.
+
 \begin{figure} [ht]
 \begin{center}
 \includegraphics[scale=0.6]{images/ext4_reiser/ext4_reiserfs_randwrite.png}
@@ -733,25 +782,39 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 \end{center}
 \end{figure}
 
+Por fim, ao utilizar os dados das medições, foi possível calcular as influências
+dos fatores, apresentados na Tabela \ref{tab:influ2}.
 
-\begin{table}[ht]
+\begin{table}[htbp]
 \begin{center}
-\begin{tabular}{|l|r|r|r|r|}
+\begin{tabular}{|r|r|r|r|r|}
 \hline
-\multicolumn{1}{|l|}{\textbf{Fator(es)}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
-\textbf{iA} & 84.93 & 22.67 & 3.49 & 0.08 \\ \hline
-\textbf{iC} & 1.32 & 1.32 & 16.17 & 56.45 \\ \hline
-\textbf{iD} & 8.55 & 49.85 & 68.35 & 43.08 \\ \hline
-\textbf{iAC} & 0.09 & 1.60 & 1.79 & 0.14 \\ \hline
-\textbf{iAD} & 4.57 & 23.98 & 4.81 & 0.01 \\ \hline
-\textbf{iCD} & 0.13 & 0.09 & 1.70 & 0.25 \\ \hline
-\textbf{iACD} & 0.41 & 0.49 & 3.69 & 0.00 \\ \hline
+\multicolumn{1}{|l|}{\textbf{Fator}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
+\textbf{iA} & 78.06 & 9.11 & 1.61 & 4.39 \\ \hline
+\textbf{iC} & 10.37 & 10.06 & 1.15 & 11.51 \\ \hline
+\textbf{iD} & 3.79 & 64.00 & 95.71 & 82.09 \\ \hline
+\textbf{iAC} & 0.46 & 5.60 & 0.09 & 0.02 \\ \hline
+\textbf{iAD} & 7.06 & 8.04 & 1.43 & 0.33 \\ \hline
+\textbf{iCD} & 0.08 & 0.46 & 0.00 & 1.51 \\ \hline
+\textbf{iACD} & 0.18 & 2.72 & 0.00 & 0.15 \\ \hline
 \end{tabular}
-\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 2 da avaliação de desempenho separados para o tipo de operação.}
 \end{center}
+\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 2 da avaliação de desempenho separados para o tipo de operação.}
 \label{tab:influ2}
 \end{table}
 
+
+Nos gráficos gerados a partir dessa tabela (vide Figura
+\ref{fig:etapa2_influs}), é possível notar que o tamanho de arquivos é um fator
+que possui grande influência quando comparamos o desempenho de Ext4 e ReiserFS
+para as operações de leitura, leitura randômica e escrita randômica. Esse fator
+faz com que o desempenho do ReiserFS seja visivelmente degradado quando
+arquivos grandes são utilizados. Também podemos notar que a quantidade de
+memória disponível é um fator de grande importância quando comparamos o
+desempenho de Ext4 e ReiserFS para operações de leitura randômica e escrita
+randômica. Nesse caso, com o aumento da memória disponível há uma degradação no
+desempenho de ambos os sistemas de arquivos, onde essa degradação é mais
+visível para o ReiserFS.
 
 \begin{figure}[ht]
 \centering
@@ -777,6 +840,10 @@ dos fatores, apresentados na Tabela \ref{tab:influ1}.
 
 
 \clearpage
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
 
 \section{Etapa 3: comparação entre XFS e ReiserFS}\label{sec:etapa3}	
 
@@ -817,7 +884,7 @@ As operações de escrita randômica e leitura randômica ficam bem próximas entre
 os sistemas de arquivos comparados, como é visto nos gráficos
 \ref{fig:barra3_randwrite} e \ref{fig:barra3_randread}, respectivamente. Através
 desses gráficos é possível visualizar que o melhor resultado é obtido nos
-experimentos 1 ou 5. Estes experimentos utilizavam tamanhos de arquivos
+experimentos 1 ou 5 em ambas operações. Estes experimentos utilizavam tamanhos de arquivos
 pequenos, de 64 KB e a memória principal de 2 GB. Note que a memória influencia
 muito nesses resultados.
 
@@ -842,22 +909,33 @@ Para o cálculo da influência dos fatores, seguem a tabela \ref{tab:influ3} com o
 
 \begin{table}[htbp]
 \begin{center}
-\begin{tabular}{|l|r|r|r|r|}
+\begin{tabular}{|r|r|r|r|r|}
 \hline
-\multicolumn{1}{|l|}{\textbf{Fator(es)}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
-\textbf{iA} & 94.36 & 14.81 & 0.74 & 0.08 \\ \hline
-\textbf{iC} & 0.10 & 0.01 & 23.52 & 56.45 \\ \hline
-\textbf{iD} & 3.19 & 64.68 & 69.60 & 43.08 \\ \hline
-\textbf{iAC} & 0.63 & 5.26 & 0.01 & 0.14 \\ \hline
-\textbf{iAD} & 1.40 & 14.35 & 0.88 & 0.01 \\ \hline
-\textbf{iCD} & 0.22 & 0.88 & 4.80 & 0.25 \\ \hline
-\textbf{iACD} & 0.09 & 0.00 & 0.45 & 0.00 \\ \hline
+\multicolumn{1}{|l|}{\textbf{Fator}} & \multicolumn{1}{l|}{\textbf{Write}} & \multicolumn{1}{l|}{\textbf{Read}} & \multicolumn{1}{l|}{\textbf{Random Read}} & \multicolumn{1}{l|}{\textbf{Random Write}} \\ \hline
+\textbf{iA} & 88.16 & 31.25 & 8.89 & 4.39 \\ \hline
+\textbf{iC} & 4.68 & 18.53 & 3.70 & 11.51 \\ \hline
+\textbf{iD} & 1.70 & 38.86 & 83.58 & 82.09 \\ \hline
+\textbf{iAC} & 1.50 & 0.16 & 0.31 & 0.02 \\ \hline
+\textbf{iAD} & 3.69 & 8.77 & 3.05 & 0.33 \\ \hline
+\textbf{iCD} & 0.09 & 2.19 & 0.24 & 1.51 \\ \hline
+\textbf{iACD} & 0.18 & 0.25 & 0.23 & 0.15 \\ \hline
 \end{tabular}
-\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 3 da avaliação de desempenho separados para o tipo de operação.}
 \end{center}
+\caption{Tabela com os valores calculados de influência dos fatores para a Etapa 3 da avaliação de desempenho separados para o tipo de operação.}
 \label{tab:influ3}
 \end{table}
 
+
+Nos gráficos gerados a partir dessa tabela (vide Figura
+\ref{fig:etapa3_influs}), é possível notar que os próprios sistemas de arquivos
+têm influência quando comparados para a operação de escrita.
+Também podemos notar que o tamanho de arquivos é um fator de grande
+influência quando comparamos XFS e ReiserFS para as operações de leitura,
+leitura randômica e escrita randômica. Arquivos maiores (64 MB) degradaram o
+desempenho de ambos os sistemas de arquivos. 
+Por fim, a quantidade de memória disponível é também um fator de importância
+para operação de leitura randômica. Nesse caso, com o aumento da memória
+disponível há uma degradação no desempenho de ambos os sistemas de arquivos.
 
 \begin{figure}[ht]
 \centering
@@ -882,18 +960,108 @@ Para o cálculo da influência dos fatores, seguem a tabela \ref{tab:influ3} com o
 \end{figure}
 
 \clearpage
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
 	
 \chapter{Conclusões}\label{cap:conclusao}
 
-\section{Etapa 1:}\label{sec:etapa1conc}
+Neste capítulo serão apresetadas as conclusões para as observações feitas a
+partir dos experimentos realizados e apresentados nos capítulos anteriores.
+Será feita uma análise para cada etapa de experimentos, seguida de uma conclusão
+final.
 
-\section{Etapa 2 }\label{sec:etapa2conc}
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+
+\section{Etapa 1: comparação entre Ext4 e XFS}\label{sec:etapa1conc}
+
+Na primeira etapa do trabalho os sistemas de arquivos Ext4 e XFS foram
+analisados em conjunto. A partir dessa análise, algumas concluões são possíveis:
+
+\begin{itemize}
+  \item O sistema de arquivos XFS teve melhor ou igual desempenho para todos os
+  experimentos realizados envolvendo blocos de tamanho 4 KB;
+  
+  \item Para demais operações XFS e Ext4 obtiveram desempenhos similares, com
+  diferenças tênues para grande parte dos casos;
+  
+  \item O tamanho de blocos é um fator que possui grande influência quando
+  comparamos o desempenho de Ext4 e XFS para a operação de escrita; e
+  
+  \item O tamanho de arquivos é um fator de grande influência quando comparamos
+  Ext4 e XFS para as operações de leitura, leitura randômica e escrita
+  randômica.
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+
+\section{Etapa 2: comparação entre Ext4 e ReiserFS}\label{sec:etapa2conc}
+
+Na segunda etapa do trabalho os sistemas de arquivos Ext4 e ReiserFS foram
+analisados em conjunto. A partir dessa análise, algumas conclusões são possíveis:
+
+\begin{itemize}
+  \item O sistema de arquivos Ext4 possui melhor desempenho que o ReiserFS para
+  todos os experimentos realizados com a operação de escrita;
+  
+  \item O sistema de arquivos ReiserFS apresentou em geral um melhor desempenho
+  que o Ext4 em experimentos envolvendo a operação de leitura para arquivos
+  menores (64 KB);
+  
+  \item O sistema de arquivos ReiserFS apresentou em geral um melhor desempenho
+  que o Ext4 em experimentos envolvendo a operação de escrita para
+  configurações onde havia maior quantidade de memória (2 GB);
+  
+  \item Para demais operações Ext4 e ReiserFS obtiveram desempenhos similares,
+  com diferenças tênues para grande parte dos casos;
+  
+  \item O tamanho de arquivos é um fator que possui grande influência quando comparamos
+  o desempenho de Ext4 e ReiserFS para as operações de leitura, leitura 
+  randômica e escrita randômica --- há queda de desempenho para arquivos
+  maiores (64 MB); 
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
 
 \section{Etapa 3 }\label{sec:etapa3conc}	
 
+Na segunda etapa do trabalho os sistemas de arquivos XFS e ReiserFS foram
+analisados em conjunto. A partir dessa análise, algumas conclusões são possíveis:
+
+\begin{itemize}
+  \item O sistema de arquivos XFS obteve um melhor resultado na operação de	escrita
+  em todos os casos;
+
+  \item O sistema de arquivos ReiserFS teve um desempenho melhor em geral nos casos
+  da operação de leitura, principalmente utilizando arquivos pequenos, de 64 KB;
+
+  \item Os dois sistemas de arquivos obtiveram resultados muito parecidos nas operações
+  de escrita randômica e leitura randômica;
+
+  \item O tamanho de arquivo foi o fator que mais influenciou as operações de leitura,
+  escrita randômica e leitura randômica.
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
 \section{Considerações finais}\label{sec:consideracoes}	
 	
-	
+De uma forma geral, quando utilizamos uma formatação padrão de um sistema de
+arquivos --- que utiliza blocos de 4 KB --- torna-se mais interessante o uso do
+sistema de arquivos XFS frente ao sistema de arquivos Ext4.
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+
 \bibliographystyle{abnt-num}
 \bibliography{monografia}
 
@@ -960,143 +1128,8 @@ Para o cálculo da influência dos fatores, seguem a tabela \ref{tab:influ3} com o
         commentstyle=\color[rgb]{0.133,0.545,0.133},
         stringstyle=\color[rgb]{0.627,0.126,0.941},
 	captionpos=b,
-	caption={Script do Gnuplot utilizado gerar os gráficos de barra para comparação dos exeperimentos. Ele utiliza arquivos de dados que foram extraídos das tabelas que podem ser vistas no Anexo \ref{chap:dados}}
+	caption={Script do Gnuplot utilizado gerar os gráficos de barra para comparação dos experimentos.}
 }
 \lstinputlisting{include/plot.gp}
-
-\chapter{Dados coletados}
-\label{chap:dados}
-
-\section{Ext4}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/ext4_1.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/ext4_2.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/ext4_3.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/ext4_4.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/ext4_5.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/ext4_6.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/ext4_7.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/ext4_8.png}
-\end{center}
-\end{figure}
-
-\clearpage
-
-\section{XFS}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_1.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_2.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_3.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_4.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_5.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_6.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_7.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/xfs_8.png}
-\end{center}
-\end{figure}
-
-\clearpage
-
-\section{ReiserFS}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/reiser_1.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/reiser_2.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/reiser_3.png}
-\end{center}
-\end{figure}
-
-\begin{figure} [!ht]
-\begin{center}
-\includegraphics[width=1\textwidth]{images/dados/reiser_4.png}
-\end{center}
-\end{figure}
-
-\clearpage
 
 \end{document}
