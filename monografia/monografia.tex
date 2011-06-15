@@ -965,17 +965,64 @@ disponível há uma degradação no desempenho de ambos os sistemas de arquivos.
 	
 \chapter{Conclusões}\label{cap:conclusao}
 
+Neste capítulo serão apresetadas as conclusões para as observações feitas a
+partir dos experimentos realizados e apresentados nos capítulos anteriores.
+Será feita uma análise para cada etapa de experimentos, seguida de uma conclusão
+final.
+
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
 
-\section{Etapa 1:}\label{sec:etapa1conc}
+\section{Etapa 1: comparação entre Ext4 e XFS}\label{sec:etapa1conc}
+
+Na primeira etapa do trabalho os sistemas de arquivos Ext4 e XFS foram
+analisados em conjunto. A partir dessa análise, algumas concluões são possíveis:
+
+\begin{itemize}
+  \item O sistema de arquivos XFS teve melhor ou igual desempenho para todos os
+  experimentos realizados envolvendo blocos de tamanho 4 KB;
+  
+  \item Para demais operações XFS e Ext4 obtiveram desempenhos similares, com
+  diferenças tênues para grande parte dos casos;
+  
+  \item O tamanho de blocos é um fator que possui grande influência quando
+  comparamos o desempenho de Ext4 e XFS para a operação de escrita; e
+  
+  \item O tamanho de arquivos é um fator de grande influência quando comparamos
+  Ext4 e XFS para as operações de leitura, leitura randômica e escrita
+  randômica.
+\end{itemize}
 
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
 
-\section{Etapa 2 }\label{sec:etapa2conc}
+\section{Etapa 2: comparação entre Ext4 e ReiserFS}\label{sec:etapa2conc}
+
+Na segunda etapa do trabalho os sistemas de arquivos Ext4 e ReiserFS foram
+analisados em conjunto. A partir dessa análise, algumas concluões são possíveis:
+
+\begin{itemize}
+  \item O sistema de arquivos Ext4 possui melhor desempenho que o ReiserFS para
+  todos os experimentos realizados com a operação de escrita;
+  
+  \item O sistema de arquivos ReiserFS apresentou em geral um melhor desempenho
+  que o Ext4 em experimentos envolvendo a operação de leitura para arquivos
+  menores (64 KB);
+  
+  \item O sistema de arquivos ReiserFS apresentou em geral um melhor desempenho
+  que o Ext4 em experimentos envolvendo a operação de escrita para
+  configurações onde havia maior quantidade de memória (2 GB);
+  
+  \item Para demais operações Ext4 e ReiserFS obtiveram desempenhos similares,
+  com diferenças tênues para grande parte dos casos;
+  
+  \item O tamanho de arquivos é um fator que possui grande influência quando comparamos
+  o desempenho de Ext4 e ReiserFS para as operações de leitura, leitura 
+  randômica e escrita randômica --- há queda de desempenho para arquivos
+  maiores (64 MB); 
+\end{itemize}
 
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
@@ -988,7 +1035,11 @@ disponível há uma degradação no desempenho de ambos os sistemas de arquivos.
 %%----------------------------------------------------------------
 \section{Considerações finais}\label{sec:consideracoes}	
 	
-	
+De uma forma geral, quando utilizamos uma formatação padrão de um sistema de
+arquivos --- que utiliza blocos de 4 KB --- torna-se mais interessante o uso do
+sistema de arquivos XFS frente ao sistema de arquivos Ext4.
+
+
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
