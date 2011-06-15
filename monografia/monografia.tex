@@ -1001,7 +1001,7 @@ analisados em conjunto. A partir dessa análise, algumas concluões são possíveis:
 \section{Etapa 2: comparação entre Ext4 e ReiserFS}\label{sec:etapa2conc}
 
 Na segunda etapa do trabalho os sistemas de arquivos Ext4 e ReiserFS foram
-analisados em conjunto. A partir dessa análise, algumas concluões são possíveis:
+analisados em conjunto. A partir dessa análise, algumas conclusões são possíveis:
 
 \begin{itemize}
   \item O sistema de arquivos Ext4 possui melhor desempenho que o ReiserFS para
@@ -1030,6 +1030,23 @@ analisados em conjunto. A partir dessa análise, algumas concluões são possíveis:
 
 \section{Etapa 3 }\label{sec:etapa3conc}	
 
+Na segunda etapa do trabalho os sistemas de arquivos XFS e ReiserFS foram
+analisados em conjunto. A partir dessa análise, algumas conclusões são possíveis:
+
+\begin{itemize}
+  \item O sistema de arquivos XFS obteve um melhor resultado na operação de	escrita
+  em todos os casos;
+
+  \item O sistema de arquivos ReiserFS teve um desempenho melhor em geral nos casos
+  da operação de leitura, principalmente utilizando arquivos pequenos, de 64 KB;
+
+  \item Os dois sistemas de arquivos obtiveram resultados muito parecidos nas operações
+  de escrita randômica e leitura randômica;
+
+  \item O tamanho de arquivo foi o fator que mais influenciou as operações de leitura,
+  escrita randômica e leitura randômica.
+\end{itemize}
+
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
@@ -1038,7 +1055,6 @@ analisados em conjunto. A partir dessa análise, algumas concluões são possíveis:
 De uma forma geral, quando utilizamos uma formatação padrão de um sistema de
 arquivos --- que utiliza blocos de 4 KB --- torna-se mais interessante o uso do
 sistema de arquivos XFS frente ao sistema de arquivos Ext4.
-
 
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
