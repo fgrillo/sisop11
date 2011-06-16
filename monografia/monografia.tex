@@ -1032,9 +1032,16 @@ analisados em conjunto. A partir dessa análise, algumas conclusões são possíveis
 %%----------------------------------------------------------------
 \section{Considerações finais}\label{sec:consideracoes}	
 	
-De uma forma geral, quando utilizamos uma formatação padrão de um sistema de
-arquivos --- que utiliza blocos de 4 KB --- torna-se mais interessante o uso do
-sistema de arquivos XFS frente ao sistema de arquivos Ext4.
+Podemos concluir com essa avaliação de desempenho:
+\begin{itemize}
+  \item Os sistemas de arquivos tem um desempenho melhor utilizando blocos de 4 KB do que 1 KB;
+
+  \item O XFS mostrou ser o melhor sistema de arquivos em escrita, principalmente com 2 GB de memória e arquivos de 64 MB;
+
+  \item O ReiserFS realizou os maiores valores de leitura, principalmente de arquivos pequenos;
+
+  \item O Ext4 fica em segundo em todas as operações, sendo um sistema de arquivos que realiza todos os tipos de operação com bom \emph{throughput}.
+\end{itemize}
 
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
