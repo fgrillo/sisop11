@@ -103,7 +103,7 @@ deve saber somente o conjunto de chamadas genéricas que lhe permite executar as
 operações de leitura, escrita, abertura e fechamento de arquivos. Cabe assim ao
 sistema operacional gerir o fluxo de informações e sua organização interna,
 abstraindo os arquivos lógicos --- aqueles visíveis para as aplicações --- em
-arquivos físicos --- mapeados em hardware. 
+arquivos físicos --- mapeados em \emph{hardware}.
 A gestão de arquivos lógicos e seu mapeamento em partes físicas é foco de estudo
 desde há muito tempo no domínio de sistemas operacionais, pois é sabido que o
 armazenamento secundário é um grande gargalo a ser enfrentado em aplicações que
@@ -113,7 +113,7 @@ Assim sendo, diversas propostas têm sido feitas para gestão interna de arquivos
 de sistemas operacionais. No contexto de sistemas operacionais de código aberto,
 podemos encontrar propostas de sistemas de arquivos. Nesse âmbito Ext4, XFS e
 ReiserFS foram lançados ao público como sistemas de arquivos eficientes para o
-sistema operacional Linux, baseado em Unix, e têm tido adoção crescente como
+sistema operacional Linux, e têm tido adoção crescente como
 consequência das funcionalidades que oferecem para realização de gestão de arquivos.
 
 %%%% ------------------------------------------------------------------
@@ -976,7 +976,7 @@ analisados em conjunto. A partir dessa análise, algumas concluões são possíveis:
   
   \item O tamanho de arquivos é um fator de grande influência quando comparamos
   Ext4 e XFS para as operações de leitura, leitura randômica e escrita
-  randômica.
+  randômica - há uma queda no desempenho quando utilizado arquivos grandes.
 \end{itemize}
 
 %%----------------------------------------------------------------
@@ -996,11 +996,7 @@ analisados em conjunto. A partir dessa análise, algumas conclusões são possíveis
   que o Ext4 em experimentos envolvendo a operação de leitura para arquivos
   menores (64 KB);
   
-  \item O sistema de arquivos ReiserFS apresentou em geral um melhor desempenho
-  que o Ext4 em experimentos envolvendo a operação de escrita para
-  configurações onde havia maior quantidade de memória (2 GB);
-  
-  \item Para demais operações Ext4 e ReiserFS obtiveram desempenhos similares,
+  \item Para as operações de leitura randômica e escrita randômica, o Ext4 e o ReiserFS obtiveram desempenhos similares,
   com diferenças tênues para grande parte dos casos;
   
   \item O tamanho de arquivos é um fator que possui grande influência quando comparamos
@@ -1019,14 +1015,13 @@ Na segunda etapa do trabalho os sistemas de arquivos XFS e ReiserFS foram
 analisados em conjunto. A partir dessa análise, algumas conclusões são possíveis:
 
 \begin{itemize}
-  \item O sistema de arquivos XFS obteve um melhor resultado na operação de	escrita
+  \item O sistema de arquivos XFS obteve melhor resultado na operação de escrita
   em todos os casos;
 
   \item O sistema de arquivos ReiserFS teve um desempenho melhor em geral nos casos
   da operação de leitura, principalmente utilizando arquivos pequenos, de 64 KB;
 
-  \item Os dois sistemas de arquivos obtiveram resultados muito parecidos nas operações
-  de escrita randômica e leitura randômica;
+  \item As operações de escrita randômica e leitura randômica tiveram \emph{throughput} parecidos em todos os casos, onde o ReiserFS tendo vantagem principalmente com arquivos de 64 KB;
 
   \item O tamanho de arquivo foi o fator que mais influenciou as operações de leitura,
   escrita randômica e leitura randômica.
