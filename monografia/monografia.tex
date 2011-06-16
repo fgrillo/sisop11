@@ -55,12 +55,30 @@ de São Paulo \par ICMC - USP
 % \emph{o sacrifício que ela comporta.}``\\
 % {\small H. W. Beecher}\end{flushright}{\small \par}
 % \end{folhadeaprovacao}
-
 \begin{resumo}
 \doublespacing
 
-resumo aqui!
-
+A complexidade crescente presente nos computadores faz com que diversas
+funcionalidades se tornem obsoletas. Para o domínio de sistemas
+operacionais, a evolução também se mostra verdadeira.
+No contexto de utilização de disco, o sistema operacional encapsula a
+comunicação com periféricos em chamadas de rotina simples e genéricas que
+permitem uma utilização transparente pela camada de aplicações.
+A gestão de arquivos lógicos e seu mapeamento em partes físicas é foco de estudo
+desde há muito tempo no domínio de sistemas operacionais, pois é sabido que o
+armazenamento secundário é um grande gargalo a ser enfrentado em aplicações que
+o utilizam.
+Assim sendo, diversas propostas têm sido feitas para gestão interna de arquivos
+de sistemas operacionais. No âmbito de sistemas operacionais de código aberto,
+Ext4, XFS e ReiserFS foram lançados ao público como sistemas de arquivos
+eficientes para o sistema operacional Linux, e têm tido adoção crescente como
+consequência das funcionalidades que oferecem para realização de gestão de
+arquivos.
+Assim sendo, neste trabalho os sistemas de arquivos Ext4, XFS e ReiserFS foram
+analisados em comparação uns aos outros. Ao fim da realização dos experimentos
+foi possível concluir que cada uma das abordagens tem pontos fortes e fracos,
+que devem ser levados em consideração de acordo com o tipo de uso que se fará do
+sistema de arquivos.
 \end{resumo}
 
 
@@ -120,7 +138,10 @@ consequência das funcionalidades que oferecem para realização de gestão de arqui
 		
 \section{Objetivos}\label{sec:objetivos}
 
-Este trabalho tem como objetivo avaliar o desempenho dos sistemas de arquivos Ext4, XFS e ReiserFS em comparação uns aos outros. Esta avaliação pretende explicitar vantagens e desvantagens destes sistemas de arquivos e esclarecer em que situações cada um possui melhor desempenho. 
+Este trabalho tem como objetivo avaliar o desempenho dos sistemas de arquivos
+Ext4, XFS e ReiserFS em comparação uns aos outros. Esta avaliação pretende
+explicitar vantagens e desvantagens destes sistemas de arquivos e esclarecer em
+que situações cada um possui melhor desempenho.
 
 
 \section{Organização do trabalho}\label{sec:organizacao}
@@ -795,12 +816,7 @@ Nos gráficos gerados a partir dessa tabela (vide Figura
 que possui grande influência quando comparamos o desempenho de Ext4 e ReiserFS
 para as operações de leitura, leitura randômica e escrita randômica. Esse fator
 faz com que o desempenho do ReiserFS seja visivelmente degradado quando
-arquivos grandes são utilizados. Também podemos notar que a quantidade de
-memória disponível é um fator de grande importância quando comparamos o
-desempenho de Ext4 e ReiserFS para operações de leitura randômica e escrita
-randômica. Nesse caso, com o aumento da memória disponível há uma degradação no
-desempenho de ambos os sistemas de arquivos, onde essa degradação é mais
-visível para o ReiserFS.
+arquivos grandes são utilizados.
 
 \begin{figure}[ht]
 \centering
