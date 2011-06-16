@@ -82,8 +82,8 @@ resumo aqui!
 A complexidade crescente presente nos computadores, motivada pelas necessidades
 cada vez mais apuradas de um mercado tecnológico em plena evolução, faz com que
 diversas funcionalidades que antigamente atendiam plenamente às necessidades se
-tornem obsoletas. Tais mudanças podem ser observadas no âmbito de hardware e
-software. Para os softwares, mais especificamente dentro do domínio de sistemas
+tornem obsoletas. Tais mudanças podem ser observadas no âmbito de \emph{hardware} e
+\emph{software}. Para os softwares, mais especificamente dentro do domínio de sistemas
 operacionais, a evolução também se mostra verdadeira, pois esse conjunto de
 sistemas é responsável por grande parte da integração que ocorre entre
 equipamentos de diversos fabricantes, além de prover abstração para que os
@@ -573,12 +573,12 @@ Capítulo \ref{cap:planejamento}.
 
 Como pode ser observado na Figura \ref{fig:barra1_write}, o sistema de arquivos
 XFS teve melhor desempenho para todos os experimentos envolvendo tamanho
-de blocos de 4 KB. Entretanto, quando o bloco passa a ser de 1 KB, nada pode se
+de blocos de 4 KB (experimentos 9 à 12). Entretanto, quando o bloco passa a ser de 1 KB (experimentos 13 à 16), nada pode se
 afirmar sobre qual dos dois sistemas de arquivos tem melhor desempenho, pois
 seus intervalos de confiança se sobrepõem. Nota-se também que o melhor
-desempenho de saída (MB/s) foi obtido utilizando XFS com blocos de 4 KB e
+desempenho de escrita (MB/s) foi obtido utilizando XFS com blocos de 4 KB e
 arquivos de tamanho de 64 MB, onde nada pode se afirmar sobre a memória, pois
-para ambos os valores de 1 GB e 2 GB as taxas de saída com seus respectivos
+para ambos os valores de 1 GB e 2 GB (experimentos 10 e 12, respectivamente) as taxas de escrita com seus respectivos
 intervalos de confiança se sobrepõem.
 
 \begin{figure} [!ht]
@@ -593,7 +593,7 @@ Ao comparar XFS e Ext4 para operação de leitura --- exemplo da Figura
 \ref{fig:barra1_read} --- podemos notar que em dois experimentos o Ext4 possui
 melhor desempenho que XFS: na leitura de blocos de 1 KB, com memória de 2 GB e
 tamanho de arquivos de 64 KB; e em uma situação similar onde os tamanhos de
-arquivos são de 64 MB. Apesar da diferença ser significativa para o primeiro
+arquivos são de 64 MB (experimentos 7 e 8, respectivamente). Apesar da diferença ser significativa para o primeiro
 caso, para o segundo não é. Nos demais casos nada se pode afirmar sobre um
 melhor desempenho, pois os resultados obtidos possuem intervalos de confiança
 sobrepostos quando comparados.
@@ -610,8 +610,8 @@ Para a operação de leitura randômica, XFS e Ext4 obtiveram desempenhos
 similares, com diferenças tênues para grande parte dos casos, como visto na
 Figura \ref{fig:barra1_randread}. Um dos resultados com grande diferença ---
 mas também grandes intervalos de confiança --- foi observado quando blocos de 4
-KB foram utilizados com 1 GB de memória com arquivos de tamanho de 64 KB. Nesse
-experimento, o Ext4 teve um desempenho \emph{médio} inferior ao XFS.
+KB foram utilizados com 1 GB de memória com arquivos de tamanho de 64 KB (experimento 9). Nesse
+experimento, o Ext4 teve um desempenho \emph{médio} superior ao XFS.
 Entretanto, os intervalos de confiança se sobrepõem nos limites, fazendo com
 que não seja possível afirmar com a certeza desejada qual se comporta da melhor
 forma sob tais circunstâncias.
@@ -625,15 +625,8 @@ forma sob tais circunstâncias.
 \end{figure}
 
 Por fim, na comparação utilizando operações de escrita randômica (vista na
-Figura \ref{fig:barra1_randwrite}) o XFS teve um desempenho visivelmente
-superior que o Ext4 quando os blocos eram de 4 KB, a memória de 2 GB e arquivos
-de 64 KB. Uma diferença um pouco menor, com \emph{throughput} similar, pode ser
-notada quando blocos de 1 KB, memória de 2 GB e arquivos de 64 MB são
-utilizados. Os maiores desempenhos de \emph{throughput} são observados
-quando a seguinte configuração é adotada: blocos de 4 KB, memória de 1 GB e
-tamanho de arquivos de 64 KB. Ainda, uma variação dessa configuração com blocos
-de 1 KB obtém performance mais previsível, ou seja, com menor intervalo de
-confiança.
+Figura \ref{fig:barra1_randwrite}) o EXT4 teve um desempenho visilmente superior ao XFS quando os blocos eram de 4 KB, a memória de 1 GB e arquivos de 64 KB (experimento 1). Uma diferença um pouco menor, com \emph{throughput} similar, pode ser
+notada com os mesmos fatores acima, porém tamanho de arquivo de 64 MB (experimento 2).
 De forma geral nesse teste os sistemas de arquivos se comportam de maneira
 similar, à parte exceções detalhadas previamente.
 
@@ -682,11 +675,7 @@ sistemas de arquivos seja visivelmente degradado quando blocos pequenos são
 utilizados. Também podemos notar que o tamanho de arquivos é um fator de grande
 influência quando comparamos Ext4 e XFS para as operações de leitura, leitura
 randômica e escrita randômica. Arquivos maiores (64 MB) degradaram o desempenho
-de ambos os sistemas de arquivos. Por fim, a quantidade de memória disponível é
-também um fator de grande importância para operações de leitura randômica e
-escrita randômica. Nesse caso, com o aumento da memória disponível há uma
-degradação no desempenho de ambos os sistemas de arquivos, onde essa degradação
-é mais visível para o Ext4.
+de ambos os sistemas de arquivos.
 
 \begin{figure}[ht]
 \centering
@@ -853,7 +842,7 @@ blocos, já que o ReiserFS não possibilitava a sua utilização com 1 KB. As
 discussões sobre os resultados obtidos nos gráficos seguintes serão, portanto,
 considerados sempre com tamanho de bloco de 4 KB.
 
-A partir do gráfico \ref{fig:barra3_write}, podemos concluir que o XFS desempenha
+A partir da Figura \ref{fig:barra3_write}, podemos concluir que o XFS desempenha
 a operação de escrita melhor que o ReiserFS. Sendo que os melhores resultados
 aparecem nos experimentos 2 e 4, ou seja, onde estava sendo utilizado arquivos
 grandes, de 64 MB. Note que a memória RAM não influencia muito esses resultados.
@@ -866,7 +855,7 @@ grandes, de 64 MB. Note que a memória RAM não influencia muito esses resultados.
 \end{center}
 \end{figure}
 
-Na operação de leitura, mostrada no gráfico \ref{fig:barra3_read}, há um ganho em
+Na operação de leitura, mostrada na Figura \ref{fig:barra3_read}, há um ganho em
 quase todas as comparações do ReiserFS. Nota-se, principalmente, um ganho nos
 experimentos 5 e 7, onde foi considerado o teste com tamanho de arquivos
 pequenos e memória RAM variável. Novamente não há grande influência do uso da
@@ -881,7 +870,7 @@ memória principal.
 \end{figure}
 
 As operações de escrita randômica e leitura randômica ficam bem próximas entre
-os sistemas de arquivos comparados, como é visto nos gráficos
+os sistemas de arquivos comparados, como é visto nas Figuras
 \ref{fig:barra3_randwrite} e \ref{fig:barra3_randread}, respectivamente. Através
 desses gráficos é possível visualizar que o melhor resultado é obtido nos
 experimentos 1 ou 5 em ambas operações. Estes experimentos utilizavam tamanhos de arquivos
