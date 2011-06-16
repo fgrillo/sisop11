@@ -554,7 +554,11 @@ A tabela \ref{tab:etapa1_experimentos} mostra os níveis utilizados em cada um do
 \end{center}
 \end{table}
 
-XXX EXPLICAR COMO FOI A EXECUÇÃO XXX
+Para a execução das repetições foi utilizado o \textit{script} bash que pode ser visto no Anexo \ref{cap:scripts}. Os testes executados com o IOzone \textit{Write}, \textit{Read}, \textit{Random Read} e \textit{Random Write} que correspondem, respectivamente, a Escrita, Leitura, Leitura aleatória e Escrita aleatória. Nos casos de Escrita e Leitura, o IOZone realiza as operações de leitura e escrita sequencial dentro de arquivos que ele mesmo cria com o tamanho especificado por um parâmetro pois é um fator desta avaliação. Nas operações de Escrita aleatória e Leitura aleatória, o IOZone realiza operaçõs de leitura e escrita não sequencial dentro dos arquivos criados por ele, ou seja, ele faz \textit{seek} para posições aleatórios dentro do arquivo e então executa a operação.
+
+A alteração para variar a quantidade de memória RAM foi realizada manualmente, retirando-se um dos dois módulos de 1GB de memória e então prosseguir com a execução dos experimentos.
+
+
 
 \chapter{Resultados Obtidos}\label{cap:resultados}
 
