@@ -148,7 +148,7 @@ conclusões sobre cada uma das etapas do experimento e considerações finais.
 \section{Considerações iniciais}\label{sec:cap2_consIni}
 
 Este trabalho envolve técnicas de Avaliação de Desempenho e os Sistemas de
-Arquivos XFS, EXT4 e ReiserFS. Este capítulo descreve os conceitos e teorias dos
+Arquivos XFS, Ext4 e ReiserFS. Este capítulo descreve os conceitos e teorias dos
 tópicos citados.
 
 %%%% ------------------------------------------------------------------
@@ -629,7 +629,7 @@ forma sob tais circunstâncias.
 \end{figure}
 
 Por fim, na comparação utilizando operações de escrita randômica (vista na
-Figura \ref{fig:barra1_randwrite}) o EXT4 teve um desempenho visilmente superior ao XFS quando os blocos eram de 4 KB, a memória de 1 GB e arquivos de 64 KB (experimento 1). Uma diferença um pouco menor, com \emph{throughput} similar, pode ser
+Figura \ref{fig:barra1_randwrite}) o Ext4 teve um desempenho visilmente superior ao XFS quando os blocos eram de 4 KB, a memória de 1 GB e arquivos de 64 KB (experimento 1). Uma diferença um pouco menor, com \emph{throughput} similar, pode ser
 notada com os mesmos fatores acima, porém tamanho de arquivo de 64 MB (experimento 2).
 De forma geral nesse teste os sistemas de arquivos se comportam de maneira
 similar, à parte exceções detalhadas previamente.
@@ -709,7 +709,7 @@ de ambos os sistemas de arquivos.
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
 
-\section{Etapa 2: comparação entre EXT4 e ReiserFS}\label{sec:etapa2}
+\section{Etapa 2: comparação entre Ext4 e ReiserFS}\label{sec:etapa2}
 
 Na segunda etapa do trabalho os sistemas de arquivos Ext4 e ReiserFS foram
 analisados em conjunto, a partir dos dados de experimentos de análise de
@@ -731,11 +731,7 @@ realizados com a operação de escrita.
 \end{figure}
 
 Na Figura \ref{fig:barra2_read} --- que representa experimentos realizados para
-a operação de leitura --- o ReiserFS apresentou em geral um melhor desempenho que
-o Ext4, à parte o experimento 2, onde o segundo obteve um melhor desempenho.
-Nesse caso, a configuração utilizada foi de 1 GB de memória e arquivos de 64
-MB. Portanto, torna-se visível a degradação de desempenho do ReiserFS ao lidar
-com arquivos de grande tamanho.
+a operação de leitura --- houve resultados muito parecidos em quase todos os experimentos, com exceção do experimento 7, onde foi testado com 2 GB de memória e arquivos de 64 KB, e houve um \emph{throughput} bem maior do ReiserFS.
 
 \begin{figure} [ht]
 \begin{center}
@@ -748,8 +744,7 @@ com arquivos de grande tamanho.
 Para a operação de leitura aleatória --- representada na  Figura
 \ref{fig:barra2_randread} --- os resultados não são conclusivos de um modo
 geral: o ReiserFS tem melhor desempenho para arquivos menores (64 KB) e memória
-de 1 GB, enquanto para uma mesma configuração com arquivos maiores (64 MB) o
-Ext4 o supera. Quando há mais memória disponível --- fator importante para
+de 2 GB. Quando há mais memória disponível --- fator importante para
 \emph{caching} --- não se pode concluir sobre qual é o sistema de arquivos mais
 eficiente, pois os intervalos de confiança se sobrepõem.
 
@@ -762,9 +757,7 @@ eficiente, pois os intervalos de confiança se sobrepõem.
 \end{figure}
 
 Por fim, para a operação de escrita randômica (vide Figura
-\ref{fig:barra2_randwrite}), o ReiserFS obteve um melhor desempenho quando a
-configuração de fatores envolvia mais quantidade de memória (2 GB). Por outro
-lado, quando havia menor quantidade de memória (1 GB), nada se pode afirmar
+\ref{fig:barra2_randwrite}), nada se pode afirmar
 sobre o desempenho de ambos, pois os intervalos de confiança se sobrepõem.
 
 \begin{figure} [ht]
@@ -860,10 +853,9 @@ grandes, de 64 MB. Note que a memória RAM não influencia muito esses resultados.
 \end{figure}
 
 Na operação de leitura, mostrada na Figura \ref{fig:barra3_read}, há um ganho em
-quase todas as comparações do ReiserFS. Nota-se, principalmente, um ganho nos
+todas as comparações do ReiserFS. Nota-se, principalmente, um ganho nos
 experimentos 5 e 7, onde foi considerado o teste com tamanho de arquivos
-pequenos e memória RAM variável. Novamente não há grande influência do uso da
-memória principal.
+pequenos, de 64 KB; e houve aumento do desempenho com o aumento da memória.
 
 \begin{figure} [!ht]
 \begin{center}
@@ -873,13 +865,12 @@ memória principal.
 \end{center}
 \end{figure}
 
-As operações de escrita randômica e leitura randômica ficam bem próximas entre
-os sistemas de arquivos comparados, como é visto nas Figuras
+As operações de escrita randômica e leitura randômica geraram resultados parecidos, como é visto nas Figuras
 \ref{fig:barra3_randwrite} e \ref{fig:barra3_randread}, respectivamente. Através
 desses gráficos é possível visualizar que o melhor resultado é obtido nos
-experimentos 1 ou 5 em ambas operações. Estes experimentos utilizavam tamanhos de arquivos
-pequenos, de 64 KB e a memória principal de 2 GB. Note que a memória influencia
-muito nesses resultados.
+experimentos 5 e 7 pelo ReiserFS em ambas operações. Estes experimentos utilizavam tamanhos de arquivos
+pequenos, de 64 KB e a memória principal variável. Note que a memória influencia
+muito nesses resultados, aumentando o desempenho.
 
 \begin{figure} [!ht]
 \begin{center}
@@ -918,7 +909,6 @@ Para o cálculo da influência dos fatores, seguem a tabela \ref{tab:influ3} com o
 \label{tab:influ3}
 \end{table}
 
-
 Nos gráficos gerados a partir dessa tabela (vide Figura
 \ref{fig:etapa3_influs}), é possível notar que os próprios sistemas de arquivos
 têm influência quando comparados para a operação de escrita.
@@ -926,9 +916,9 @@ Também podemos notar que o tamanho de arquivos é um fator de grande
 influência quando comparamos XFS e ReiserFS para as operações de leitura,
 leitura randômica e escrita randômica. Arquivos maiores (64 MB) degradaram o
 desempenho de ambos os sistemas de arquivos. 
-Por fim, a quantidade de memória disponível é também um fator de importância
-para operação de leitura randômica. Nesse caso, com o aumento da memória
-disponível há uma degradação no desempenho de ambos os sistemas de arquivos.
+Por fim, a quantidade de memória principal é também um fator de importância
+para operação de leitura. Nesse caso, com o aumento da memória
+disponível há um ganho no desempenho de ambos os sistemas de arquivos.
 
 \begin{figure}[ht]
 \centering
