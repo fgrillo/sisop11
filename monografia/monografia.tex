@@ -42,7 +42,29 @@ de São Paulo \par ICMC - USP
 
 \data{20 de junho de 2011}
 
-\capa
+
+\begin{titlepage}	\vfill	
+	\begin{center}		{\instituicaoformat Instituto de Ciências Matemáticas e de Computação \\ Universidade de São Paulo \\ ICMC - USP} \\[1cm] 
+	
+		\begin{figure} [ht]
+		\centering
+		\includegraphics[width=0.3\textwidth]{images/icmc.png}
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		{\tituloformat Avaliação de Sistemas de Arquivos \\  \normalsize \textcolor{light-gray}{(Ext4, ReiserFS e XFS)}}\\
+		
+		\vfill
+		
+		{Trabalho da disciplina de Sistemas Operacionais \\ Pós-graduação 2011}\\[2cm]
+		
+		\vfill
+		
+		{\autorformat Fausto Guzzo da Costa \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nUsp: 5230736\\ Filipe Del Nero Grillo \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nUsp: 5378140 \\ Vinicíus Augusto Tagliatti Zani \ \ \ \ \ \ \ nUsp: 5118935}
+
+	\end{center}
+\end{titlepage}
 
 \folhaderosto
 
@@ -58,24 +80,13 @@ de São Paulo \par ICMC - USP
 \begin{resumo}
 \doublespacing
 
-A complexidade crescente presente nos computadores faz com que diversas
-funcionalidades se tornem obsoletas. Para o domínio de sistemas
-operacionais, a evolução também se mostra verdadeira.
-No contexto de utilização de disco, o sistema operacional encapsula a
-comunicação com periféricos em chamadas de rotina simples e genéricas que
-permitem uma utilização transparente pela camada de aplicações.
-A gestão de arquivos lógicos e seu mapeamento em partes físicas é foco de estudo
-desde há muito tempo no domínio de sistemas operacionais, pois é sabido que o
-armazenamento secundário é um grande gargalo a ser enfrentado em aplicações que
-o utilizam.
-Assim sendo, diversas propostas têm sido feitas para gestão interna de arquivos
+Diversas propostas têm sido feitas para gestão interna de arquivos
 de sistemas operacionais. No âmbito de sistemas operacionais de código aberto,
 Ext4, XFS e ReiserFS foram lançados ao público como sistemas de arquivos
 eficientes para o sistema operacional Linux, e têm tido adoção crescente como
 consequência das funcionalidades que oferecem para realização de gestão de
 arquivos.
-Assim sendo, neste trabalho os sistemas de arquivos Ext4, XFS e ReiserFS foram
-analisados em comparação uns aos outros. Ao fim da realização dos experimentos
+Neste trabalho, foi realizado uma avaliação de desempenho entre os sistemas de arquivos Ext4, XFS e ReiserFS medindo-se o \emph{throughput} das operações de escrita, leitura, leitura aleatória e escrita aleatória. Os experimentos contavam com a variação de tamanho de bloco da partição, quantidade de memória RAM do sistema e o tamanho dos arquivos que foram utilizados nas operações descritas anteriormente. Ao fim da realização dos experimentos
 foi possível concluir que cada uma das abordagens tem pontos fortes e fracos,
 que devem ser levados em consideração de acordo com o tipo de uso que se fará do
 sistema de arquivos.
