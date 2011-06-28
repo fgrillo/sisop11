@@ -86,10 +86,15 @@ Ext4, XFS e ReiserFS foram lançados ao público como sistemas de arquivos
 eficientes para o sistema operacional Linux, e têm tido adoção crescente como
 consequência das funcionalidades que oferecem para realização de gestão de
 arquivos.
-Neste trabalho, foi realizado uma avaliação de desempenho entre os sistemas de arquivos Ext4, XFS e ReiserFS medindo-se o \emph{throughput} das operações de escrita, leitura, leitura aleatória e escrita aleatória. Os experimentos contavam com a variação de tamanho de bloco da partição, quantidade de memória RAM do sistema e o tamanho dos arquivos que foram utilizados nas operações descritas anteriormente. Ao fim da realização dos experimentos
-foi possível concluir que cada uma das abordagens tem pontos fortes e fracos,
-que devem ser levados em consideração de acordo com o tipo de uso que se fará do
-sistema de arquivos.
+Neste trabalho, foi realizado uma avaliação de desempenho entre os sistemas de
+arquivos Ext4, XFS e ReiserFS medindo-se o \emph{throughput} das operações de
+escrita, leitura, leitura aleatória e escrita aleatória. Os experimentos
+contavam com a variação de tamanho de bloco da partição, quantidade de memória
+RAM do sistema e o tamanho dos arquivos que foram utilizados nas operações
+descritas anteriormente. Ao fim da realização dos experimentos foi possível
+concluir que cada uma das abordagens tem pontos fortes e fracos, que devem ser
+levados em consideração de acordo com o tipo de uso que se fará do sistema de
+arquivos.
 \end{resumo}
 
 
@@ -1058,17 +1063,34 @@ analisados em conjunto. A partir dessa análise, algumas conclusões são possíveis
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
 \section{Considerações finais}\label{sec:consideracoes}	
-	
-Podemos concluir com essa avaliação de desempenho:
-\begin{itemize}
-  \item Os sistemas de arquivos tem um desempenho melhor utilizando blocos de 4 KB do que 1 KB;
 
-  \item O XFS mostrou ser o melhor sistema de arquivos em escrita, principalmente com 2 GB de memória e arquivos de 64 MB;
+O objetivo dessa avaliação de desempenho foi de comparar os sistemas de arquivos
+Ext4, XFS e ReiserFS para operações de leitura, escrita, leitura aleatória e
+escrita aleatória, medindo-se o \emph{throughput} das operações. Foram adotados
+como fatores tamanho de bloco da partição, quantidade de memória RAM disponível
+e tamanho dos arquivos utilizados nas operações.
+Ao término dos experimentos, foi possível concluir que blocos maiores nas
+partições oferecem maior desempenho para as operações avaliadas. Em relação a
+sistemas de arquivos, o XFS se mostrou mais eficiente quando há mais operações
+de escrita, principalmente com arquivos maiores. Por outro lado, o sistema de
+arquivos ReiserFS se mostrou mais eficiente em operações de leitura,
+principalmente com arquivos menores. Por fim, o sistema de arquivos Ext4
+realizou todas as operações em tempos médios, não apresentando quedas
+significativas de desempenho.
 
-  \item O ReiserFS realizou os maiores valores de leitura, principalmente de arquivos pequenos;
-
-  \item O Ext4 fica em segundo em todas as operações, sendo um sistema de arquivos que realiza todos os tipos de operação com bom \emph{throughput}.
-\end{itemize}
+Assim, podemos concluir que há casos onde cada sistema de arquivo apresenta um
+melhor desempenho, e como consequência sua adoção é mais interessante. O XFS,
+por possuir bom desempenho em escrita, pode ser utilizado como exemplo em
+sistemas que realizam \emph{backup} de dados, ou grandes bases de dados que
+sofrem poucas consultas. Já o ReiserFS, por possuir bom desempenho de leitura,
+pode ser utilizado em sistemas que servem conteúdo, como servidores \emph{web}.
+Entretanto, vale ressaltar que o suporte a tal sistema de arquivos foi
+descontinuado, e a adoção passa a estar sujeita aos riscos inerentes a este
+fato.
+Por fim, o Ext4 passa então a ser aconselhável em casos onde há um equilíbrio
+entre operações de leitura e escrita, pois seu desempenho não é demasiadamente
+afetado por operações específicas. Assim sendo, um usuário comum poderia
+adotá-lo como forma mais segura de garantir um desempenho aceitável.
 
 %%----------------------------------------------------------------
 %%----------------------------------------------------------------
